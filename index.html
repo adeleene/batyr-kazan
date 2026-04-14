@@ -31,7 +31,6 @@
       background: var(--cream);
       color: var(--dark);
       overflow-x: hidden;
-      font-size: 18px;
     }
 
     /* ── SCROLLBAR ── */
@@ -66,11 +65,7 @@
       align-items: center;
       gap: 12px;
     }
-    .nav-logo img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
+    .nav-logo svg { width: 28px; height: 28px; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -142,7 +137,7 @@
     .hero-label {
       font-size: 10px;
       letter-spacing: 0.24em;
-      color: #ffffff;
+      color: var(--gold);
       font-weight: 300;
       margin-bottom: 16px;
       text-transform: uppercase;
@@ -248,8 +243,8 @@
     /* ── SECTIONS COMMON ── */
     section { padding: 96px 80px; }
     .section-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.24em;
+      font-size: 12px;
+      letter-spacing: 0.2em;
       color: var(--gold);
       font-weight: 300;
       margin-bottom: 14px;
@@ -295,7 +290,7 @@
     }
     .about .section-title { color: var(--dark); margin-bottom: 20px; }
     .about-body {
-      font-size: 15px;
+      font-size: 17px;
       color: #5A4A3A;
       line-height: 1.9;
       font-weight: 300;
@@ -323,9 +318,9 @@
       line-height: 1;
     }
     .stat-label {
-      font-size: 11px;
+      font-size: 13px;
       color: #8A7A6A;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       margin-top: 4px;
       font-weight: 300;
     }
@@ -394,25 +389,25 @@
       color: rgba(184,154,120,0.3);
     }
     .tour-tag {
-      font-size: 9px;
-      letter-spacing: 0.2em;
+      font-size: 11px;
+      letter-spacing: 0.16em;
       color: var(--gold);
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 10px;
       text-transform: uppercase;
     }
     .tour-name {
       font-family: var(--serif);
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 400;
       color: var(--cream);
       line-height: 1.25;
       margin-bottom: 10px;
     }
     .tour-desc {
-      font-size: 12px;
-      color: rgba(242,232,220,0.4);
-      line-height: 1.7;
+      font-size: 15px;
+      color: rgba(242,232,220,0.6);
+      line-height: 1.75;
       font-weight: 300;
       flex: 1;
       margin-bottom: 24px;
@@ -427,8 +422,8 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 11px;
-      color: rgba(242,232,220,0.5);
+      font-size: 13px;
+      color: rgba(242,232,220,0.6);
       font-weight: 300;
     }
     .tour-include-dot {
@@ -452,9 +447,9 @@
       line-height: 1;
     }
     .tour-price-sub {
-      font-size: 9px;
-      color: rgba(184,154,120,0.5);
-      letter-spacing: 0.1em;
+      font-size: 11px;
+      color: rgba(184,154,120,0.6);
+      letter-spacing: 0.08em;
       display: block;
       margin-top: 4px;
     }
@@ -500,15 +495,15 @@
       margin-bottom: 16px;
     }
     .how-step-title {
-      font-size: 11px;
-      letter-spacing: 0.1em;
+      font-size: 13px;
+      letter-spacing: 0.08em;
       color: var(--dark);
       font-weight: 500;
       margin-bottom: 8px;
       text-transform: uppercase;
     }
     .how-step-body {
-      font-size: 13px;
+      font-size: 15px;
       color: #7A6A5A;
       line-height: 1.75;
       font-weight: 300;
@@ -526,8 +521,8 @@
     }
     .why .section-title { color: var(--cream); margin-bottom: 20px; }
     .why-body {
-      font-size: 14px;
-      color: rgba(242,232,220,0.45);
+      font-size: 16px;
+      color: rgba(242,232,220,0.55);
       line-height: 1.9;
       font-weight: 300;
     }
@@ -550,16 +545,16 @@
       margin-bottom: 12px;
     }
     .why-item-title {
-      font-size: 13px;
-      letter-spacing: 0.06em;
+      font-size: 15px;
+      letter-spacing: 0.04em;
       color: var(--cream);
       font-weight: 400;
       margin-bottom: 6px;
     }
     .why-item-body {
-      font-size: 12px;
-      color: rgba(242,232,220,0.38);
-      line-height: 1.65;
+      font-size: 14px;
+      color: rgba(242,232,220,0.5);
+      line-height: 1.7;
       font-weight: 300;
     }
 
@@ -667,7 +662,7 @@
     .contact-sub {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 18px;
+      font-size: 22px;
       color: rgba(184,154,120,0.7);
       margin-bottom: 48px;
       font-weight: 300;
@@ -756,9 +751,26 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo">
-  <img src="BATYR_emblem.svg" alt="БАТЫР">
-  БАТЫР
-</a>
+    <svg viewBox="0 0 110 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M55 148C55 148 54 130 54.5 118C55 106 56 100 55 90" stroke="#B89A78" stroke-width="2" stroke-linecap="round"/>
+      <path d="M54.5 118C54.5 118 38 110 30 96C38 100 48 108 54.5 114" fill="#5A7A60"/>
+      <path d="M55 112C55 112 72 104 80 90C72 94 62 102 55.5 108" fill="#5A7A60"/>
+      <path d="M53 100C53 100 40 94 36 82C43 88 50 95 53 98" fill="#5A7A60" opacity="0.7"/>
+      <path d="M57 96C57 96 70 90 74 78C67 84 60 91 57 94" fill="#5A7A60" opacity="0.7"/>
+      <path d="M55 18C55 18 32 30 28 52C25 68 35 86 48 90C44 80 40 66 42 52C44 38 55 26 55 18Z" fill="#F2E8DC" opacity="0.85"/>
+      <path d="M55 18C55 18 78 30 82 52C85 68 75 86 62 90C66 80 70 66 68 52C66 38 55 26 55 18Z" fill="#F2E8DC" opacity="0.85"/>
+      <path d="M55 14C55 14 44 28 43 50C42 64 47 80 55 88C63 80 68 64 67 50C66 28 55 14 55 14Z" fill="#E8D9C8" opacity="0.7"/>
+      <path d="M28 52C28 52 18 44 16 32C20 38 26 46 28 50" stroke="#B89A78" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M16 32C14 26 17 20 22 18C20 24 18 28 16 32Z" fill="#9AB8A0"/>
+      <path d="M82 52C82 52 92 44 94 32C90 38 84 46 82 50" stroke="#B89A78" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M94 32C96 26 93 20 88 18C90 24 92 28 94 32Z" fill="#9AB8A0"/>
+      <circle cx="20" cy="17" r="4" fill="#9AB8A0"/>
+      <circle cx="20" cy="17" r="1.8" fill="#C8D8C0"/>
+      <circle cx="90" cy="17" r="4" fill="#9AB8A0"/>
+      <circle cx="90" cy="17" r="1.8" fill="#C8D8C0"/>
+    </svg>
+    БАТЫР
+  </a>
   <div class="nav-links">
     <a href="#tours">туры</a>
     <a href="#about">о нас</a>
@@ -1042,7 +1054,7 @@
     <h2 class="section-title" style="color:var(--cream);margin-bottom:12px;">готовы<br><em>в путь?</em></h2>
     <p class="contact-sub">Приезжайте — мы позаботимся обо всём остальном</p>
     <div class="contact-btns">
-      <a href="https://t.me/adeleene" class="btn-primary">написать в Telegram</a>
+      <a href="https://t.me/batyr_kazan" class="btn-primary">написать в Telegram</a>
       <a href="https://wa.me/79377766687" class="btn-secondary">написать в WhatsApp</a>
     </div>
     <div class="contact-details">
@@ -1061,7 +1073,7 @@
     <a href="#about">о нас</a>
     <a href="#contact">контакты</a>
   </div>
-  <div class="footer-copy">© 2026 · семейное бюро путешествий · Казань</div>
+  <div class="footer-copy">© 2025 · семейное бюро путешествий · Казань</div>
 </footer>
 
 <script>
