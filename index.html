@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БАТЫР — Семейное бюро путешествий по Казани</title>
+  <meta name="description" content="Казань глазами семьи, которая её любит. Индивидуальные путешествия по Казани и Татарстану.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #1A261C;
+      --dark2: #2A3828;
+      --dark3: #3D5744;
+      --cream: #F2E8DC;
+      --cream2: #E8D9C8;
+      --gold: #B89A78;
+      --gold-light: #D4B896;
+      --text-muted: rgba(242,232,220,0.5);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Raleway', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(26,38,28,0.96);
+      padding: 14px 48px;
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--cream);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo svg { width: 28px; height: 28px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: rgba(242,232,220,0.65);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 400;
+      border-bottom: 0.5px solid var(--gold);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.7; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 80px 72px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(26,38,28,0.3) 0%, rgba(26,38,28,0.15) 40%, rgba(26,38,28,0.7) 75%, rgba(26,38,28,0.95) 100%);
+      z-index: 1;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+      transform: scale(1.05);
+      animation: heroZoom 12s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      to { transform: scale(1); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .hero-line {
+      width: 40px;
+      height: 0.5px;
+      background: var(--gold);
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.2s both;
+    }
+    .hero-label {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      font-weight: 300;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      animation: fadeUp 0.8s 0.3s both;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      animation: fadeUp 0.8s 0.4s both;
+    }
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: rgba(184,154,120,0.85);
+      font-weight: 300;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      animation: fadeUp 0.8s 0.5s both;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      animation: fadeUp 0.8s 0.6s both;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--dark);
+      background: var(--gold);
+      padding: 14px 32px;
+      font-family: var(--sans);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: rgba(242,232,220,0.55);
+      font-weight: 300;
+      text-decoration: none;
+      border-bottom: 0.5px solid rgba(242,232,220,0.25);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--cream); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      right: 48px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: fadeUp 1s 1s both;
+    }
+    .hero-scroll span {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: rgba(184,154,120,0.5);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+    .hero-scroll-line {
+      width: 0.5px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s 1.5s infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 48px;
+      gap: 20px;
+      background: var(--cream);
+    }
+    .div-line { flex: 1; height: 0.5px; background: #C8B89A; opacity: 0.4; }
+    .div-tulip { width: 20px; opacity: 0.5; }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 96px 80px; }
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      font-weight: 300;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 0;
+    }
+    .section-title em { font-style: italic; font-weight: 600; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--cream); }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-img {
+      aspect-ratio: 3/4;
+      background: var(--dark2);
+      overflow: hidden;
+      position: relative;
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(184,154,120,0.4);
+      min-height: 400px;
+    }
+    .about .section-title { color: var(--dark); margin-bottom: 20px; }
+    .about-body {
+      font-size: 15px;
+      color: #5A4A3A;
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .about-sig {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--gold);
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 0.5px solid #C8B89A;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #8A7A6A;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+      font-weight: 300;
+    }
+
+    /* ── TOURS ── */
+    .tours { background: var(--dark); }
+    .tours-header {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .tours .section-title { color: var(--cream); }
+    .tours-link {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--gold);
+      padding-bottom: 2px;
+    }
+    .tours-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(184,154,120,0.15);
+    }
+    .tour-card {
+      background: var(--dark);
+      padding: 32px 28px;
+      border: 0.5px solid rgba(184,154,120,0.1);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s;
+    }
+    .tour-card:hover { background: var(--dark2); }
+    .tour-num {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(184,154,120,0.2);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .tour-img {
+      height: 180px;
+      background: var(--dark2);
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .tour-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .tour-card:hover .tour-img img { transform: scale(1.04); }
+    .tour-img-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(184,154,120,0.3);
+    }
+    .tour-tag {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-weight: 300;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .tour-name {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .tour-desc {
+      font-size: 12px;
+      color: rgba(242,232,220,0.4);
+      line-height: 1.7;
+      font-weight: 300;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+    .tour-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .tour-include-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: rgba(242,232,220,0.5);
+      font-weight: 300;
+    }
+    .tour-include-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .tour-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 0.5px solid rgba(184,154,120,0.15);
+    }
+    .tour-price {
+      font-family: var(--serif);
+      font-size: 26px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .tour-price-sub {
+      font-size: 9px;
+      color: rgba(184,154,120,0.5);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: 4px;
+    }
+    .tour-arrow {
+      width: 36px;
+      height: 36px;
+      border: 0.5px solid rgba(184,154,120,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .tour-arrow:hover { background: rgba(184,154,120,0.1); }
+
+    /* ── HOW ── */
+    .how { background: var(--cream); }
+    .how-header {
+      max-width: 1200px;
+      margin: 0 auto 56px;
+    }
+    .how .section-title { color: var(--dark); }
+    .how-steps {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 0.5px solid #C8B89A;
+    }
+    .how-step {
+      padding: 36px 28px;
+      border-right: 0.5px solid #C8B89A;
+    }
+    .how-step:last-child { border-right: none; }
+    .how-step-num {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      color: rgba(184,154,120,0.25);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .how-step-title {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      font-weight: 500;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .how-step-body {
+      font-size: 13px;
+      color: #7A6A5A;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── WHY ── */
+    .why { background: var(--dark2); }
+    .why-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .why .section-title { color: var(--cream); margin-bottom: 20px; }
+    .why-body {
+      font-size: 14px;
+      color: rgba(242,232,220,0.45);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .why-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 0.5px solid rgba(184,154,120,0.2);
+    }
+    .why-item {
+      padding: 24px 28px;
+      border-bottom: 0.5px solid rgba(184,154,120,0.1);
+      transition: background 0.2s;
+    }
+    .why-item:hover { background: rgba(184,154,120,0.04); }
+    .why-item-line {
+      width: 24px;
+      height: 0.5px;
+      background: var(--gold);
+      margin-bottom: 12px;
+    }
+    .why-item-title {
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .why-item-body {
+      font-size: 12px;
+      color: rgba(242,232,220,0.38);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      background: var(--gold);
+      padding: 72px 80px;
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: var(--serif);
+      font-size: 72px;
+      color: rgba(26,38,28,0.18);
+      line-height: 0.6;
+      margin-bottom: 20px;
+    }
+    .quote-text {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(20px, 2.5vw, 28px);
+      color: var(--dark);
+      line-height: 1.6;
+      font-weight: 300;
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+    .quote-author {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(26,38,28,0.45);
+      text-transform: uppercase;
+    }
+
+    /* ── DESTINATIONS ── */
+    .destinations { background: var(--cream); }
+    .dest-header {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+    .dest-header .section-title { color: var(--dark); }
+    .dest-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 12px;
+    }
+    .dest-card {
+      background: var(--dark2);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .dest-card:first-child { grid-row: 1 / 3; }
+    .dest-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .dest-card:hover .dest-card-img { transform: scale(1.04); }
+    .dest-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,38,28,0.75) 0%, transparent 60%);
+    }
+    .dest-card-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .dest-card-sub {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 300;
+    }
+    .dest-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(184,154,120,0.3);
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--dark); padding: 96px 80px; }
+    .contact-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact .section-title { color: var(--cream); margin-bottom: 12px; }
+    .contact-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: rgba(184,154,120,0.7);
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+    .contact-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .btn-secondary {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--cream);
+      background: transparent;
+      padding: 13px 28px;
+      border: 0.5px solid rgba(242,232,220,0.2);
+      font-family: var(--sans);
+      font-weight: 300;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .contact-details { font-size: 12px; color: rgba(184,154,120,0.35); letter-spacing: 0.1em; }
+    .contact-details a { color: rgba(184,154,120,0.35); text-decoration: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111A12;
+      padding: 24px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: rgba(242,232,220,0.3);
+      text-decoration: none;
+    }
+    .footer-copy { font-size: 10px; color: rgba(242,232,220,0.18); letter-spacing: 0.1em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 10px; color: rgba(242,232,220,0.25); text-decoration: none; letter-spacing: 0.1em; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      nav.scrolled { padding: 12px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 60px 24px 56px; }
+      section { padding: 64px 24px; }
+      .about-inner { grid-template-columns: 1fr; gap: 36px; }
+      .about-img { aspect-ratio: 16/9; min-height: auto; }
+      .tours-grid { grid-template-columns: 1fr; }
+      .tours-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .how-steps { grid-template-columns: 1fr 1fr; }
+      .how-step { border-bottom: 0.5px solid #C8B89A; }
+      .how-step:nth-child(2) { border-right: none; }
+      .why-inner { grid-template-columns: 1fr; gap: 40px; }
+      .dest-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .dest-card:first-child { grid-row: auto; }
+      .contact-btns { flex-direction: column; align-items: center; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px 24px; }
+      .footer-links { display: none; }
+      .quote-section { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 110 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M55 148C55 148 54 130 54.5 118C55 106 56 100 55 90" stroke="#B89A78" stroke-width="2" stroke-linecap="round"/>
+      <path d="M54.5 118C54.5 118 38 110 30 96C38 100 48 108 54.5 114" fill="#5A7A60"/>
+      <path d="M55 112C55 112 72 104 80 90C72 94 62 102 55.5 108" fill="#5A7A60"/>
+      <path d="M53 100C53 100 40 94 36 82C43 88 50 95 53 98" fill="#5A7A60" opacity="0.7"/>
+      <path d="M57 96C57 96 70 90 74 78C67 84 60 91 57 94" fill="#5A7A60" opacity="0.7"/>
+      <path d="M55 18C55 18 32 30 28 52C25 68 35 86 48 90C44 80 40 66 42 52C44 38 55 26 55 18Z" fill="#F2E8DC" opacity="0.85"/>
+      <path d="M55 18C55 18 78 30 82 52C85 68 75 86 62 90C66 80 70 66 68 52C66 38 55 26 55 18Z" fill="#F2E8DC" opacity="0.85"/>
+      <path d="M55 14C55 14 44 28 43 50C42 64 47 80 55 88C63 80 68 64 67 50C66 28 55 14 55 14Z" fill="#E8D9C8" opacity="0.7"/>
+      <path d="M28 52C28 52 18 44 16 32C20 38 26 46 28 50" stroke="#B89A78" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M16 32C14 26 17 20 22 18C20 24 18 28 16 32Z" fill="#9AB8A0"/>
+      <path d="M82 52C82 52 92 44 94 32C90 38 84 46 82 50" stroke="#B89A78" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <path d="M94 32C96 26 93 20 88 18C90 24 92 28 94 32Z" fill="#9AB8A0"/>
+      <circle cx="20" cy="17" r="4" fill="#9AB8A0"/>
+      <circle cx="20" cy="17" r="1.8" fill="#C8D8C0"/>
+      <circle cx="90" cy="17" r="4" fill="#9AB8A0"/>
+      <circle cx="90" cy="17" r="1.8" fill="#C8D8C0"/>
+    </svg>
+    БАТЫР
+  </a>
+  <div class="nav-links">
+    <a href="#tours">туры</a>
+    <a href="#about">о нас</a>
+    <a href="#destinations">маршруты</a>
+    <a href="#contact">контакты</a>
+  </div>
+  <a href="#contact" class="nav-cta">забронировать</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-line"></div>
+    <div class="hero-label">семейное бюро путешествий · Казань</div>
+    <h1 class="hero-title">БАТЫР</h1>
+    <p class="hero-subtitle">Казань глазами семьи,<br>которая её любит</p>
+    <div class="hero-actions">
+      <a href="#tours" class="btn-primary">смотреть туры</a>
+      <a href="#about" class="btn-ghost">узнать о нас</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider">
+  <div class="div-line"></div>
+  <svg class="div-tulip" viewBox="0 0 110 150" fill="none">
+    <path d="M55 148C55 148 54 130 54.5 118C55 106 56 100 55 90" stroke="#B89A78" stroke-width="2" stroke-linecap="round"/>
+    <path d="M54.5 118C54.5 118 38 110 30 96C38 100 48 108 54.5 114" fill="#B89A78" opacity="0.5"/>
+    <path d="M55 112C55 112 72 104 80 90C72 94 62 102 55.5 108" fill="#B89A78" opacity="0.5"/>
+    <path d="M55 18C55 18 32 30 28 52C25 68 35 86 48 90C44 80 40 66 42 52C44 38 55 26 55 18Z" fill="#B89A78" opacity="0.4"/>
+    <path d="M55 18C55 18 78 30 82 52C85 68 75 86 62 90C66 80 70 66 68 52C66 38 55 26 55 18Z" fill="#B89A78" opacity="0.4"/>
+    <path d="M55 14C55 14 44 28 43 50C42 64 47 80 55 88C63 80 68 64 67 50C66 28 55 14 55 14Z" fill="#B89A78" opacity="0.3"/>
+  </svg>
+  <div class="div-line"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img reveal">
+      <div class="about-img-placeholder">фото команды БАТЫР</div>
+    </div>
+    <div class="reveal">
+      <div class="section-eyebrow">о нас</div>
+      <h2 class="section-title" style="color:var(--dark);margin-bottom:20px;">мы — семья,<br><em>влюблённая</em><br>в Казань</h2>
+      <p class="about-body">Мы не туроператор. Мы семья, которая живёт в Казани и принимает гостей так, как принимают близких — с теплом, вниманием и настоящими историями о городе.</p>
+      <p class="about-body">Папа — водитель и гид. Мама — администратор. Каждый маршрут выстроен лично нами, каждый гость для нас — не клиент, а гость.</p>
+      <div class="about-sig">— ваши гиды и хозяева</div>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">индивидуально</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">пакета путешествий</div>
+        </div>
+        <div>
+          <div class="stat-num">♡</div>
+          <div class="stat-label">с душой</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOURS -->
+<section class="tours" id="tours">
+  <div class="tours-header reveal">
+    <div>
+      <div class="section-eyebrow">наши путешествия</div>
+      <h2 class="section-title">выберите<br><em>своё</em></h2>
+    </div>
+    <a href="#contact" class="tours-link">все туры →</a>
+  </div>
+  <div class="tours-grid">
+
+    <div class="tour-card reveal">
+      <div class="tour-num">01</div>
+      <div class="tour-img">
+        <div class="tour-img-ph">вечерняя Казань · film photo</div>
+      </div>
+      <div class="tour-tag">для двоих</div>
+      <div class="tour-name">Выходные в Казани</div>
+      <p class="tour-desc">Два дня в Казани только для вас двоих. Встреча на вокзале, завтрак, авторская экскурсия по городу, день в Свияжске.</p>
+      <div class="tour-includes">
+        <div class="tour-include-item"><div class="tour-include-dot"></div>встреча и все трансферы</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>отель в центре (1 ночь)</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>завтрак и экскурсия</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>Свияжск с гидом</div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price">55 000 ₽</div>
+          <span class="tour-price-sub">на двоих · билеты свои</span>
+        </div>
+        <a href="#contact" class="tour-arrow">→</a>
+      </div>
+    </div>
+
+    <div class="tour-card reveal">
+      <div class="tour-num">02</div>
+      <div class="tour-img">
+        <div class="tour-img-ph">семья в Казани · film photo</div>
+      </div>
+      <div class="tour-tag">для семьи</div>
+      <div class="tour-name">Казань всей семьёй</div>
+      <p class="tour-desc">Маршрут адаптирован под детей — Экият, Туган Авылым, эчпочмаки. Темп спокойный, впечатления настоящие.</p>
+      <div class="tour-includes">
+        <div class="tour-include-item"><div class="tour-include-dot"></div>маршрут под возраст детей</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>отель с семейными номерами</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>татарская кухня и мастер-классы</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>загород или город — на выбор</div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price">от 65 000 ₽</div>
+          <span class="tour-price-sub">за семью</span>
+        </div>
+        <a href="#contact" class="tour-arrow">→</a>
+      </div>
+    </div>
+
+    <div class="tour-card reveal">
+      <div class="tour-num">03</div>
+      <div class="tour-img">
+        <div class="tour-img-ph">компания в Казани · film photo</div>
+      </div>
+      <div class="tour-tag">для компании</div>
+      <div class="tour-name">Своя Казань</div>
+      <p class="tour-desc">До 6 человек. Больше свободы, гастрономия, вечерняя программа. Казань такая, какой её видим мы — без официоза.</p>
+      <div class="tour-includes">
+        <div class="tour-include-item"><div class="tour-include-dot"></div>до 6 человек в одном авто</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>гастрономический маршрут</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>вечерняя Казань</div>
+        <div class="tour-include-item"><div class="tour-include-dot"></div>кастомизация под группу</div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price">от 70 000 ₽</div>
+          <span class="tour-price-sub">за группу</span>
+        </div>
+        <a href="#contact" class="tour-arrow">→</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how">
+  <div class="how-header reveal">
+    <div class="section-eyebrow">как это работает</div>
+    <h2 class="section-title">просто<br><em>приезжайте</em></h2>
+  </div>
+  <div class="how-steps reveal">
+    <div class="how-step">
+      <div class="how-step-num">01</div>
+      <div class="how-step-title">выбираете тур</div>
+      <p class="how-step-body">Пишете нам, обсуждаем даты и детали. Подбираем под ваши интересы.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">02</div>
+      <div class="how-step-title">берём билеты вместе</div>
+      <p class="how-step-body">Помогаем выбрать удобный поезд, вы покупаете сами. Советуем лучшие варианты.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">03</div>
+      <div class="how-step-title">встречаем</div>
+      <p class="how-step-body">Папа у вагона с первой минуты. Никакого стресса — сразу чувствуете себя в гостях.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-step-num">04</div>
+      <div class="how-step-title">показываем Казань</div>
+      <p class="how-step-body">Живо, тепло, только для вас. Город таким, каким его знаем мы.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="why-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">почему батыр</div>
+      <h2 class="section-title" style="color:var(--cream);margin-bottom:20px;">не как<br><em>у всех</em></h2>
+      <p class="why-body">Мы не продаём места в автобусе. Мы берём вас в город так, как берут в гости — по-настоящему, с заботой о каждой детали.</p>
+    </div>
+    <div class="why-items reveal">
+      <div class="why-item">
+        <div class="why-item-line"></div>
+        <div class="why-item-title">только вы, без группы</div>
+        <p class="why-item-body">Весь маршрут принадлежит только вам. Никаких чужих людей рядом.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-item-line"></div>
+        <div class="why-item-title">всё включено</div>
+        <p class="why-item-body">Отель, трансферы, экскурсии, завтрак. Вы просто приезжаете.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-item-line"></div>
+        <div class="why-item-title">семья, не агентство</div>
+        <p class="why-item-body">Мы живём здесь и знаем каждый переулок, лучший чак-чак и скрытые дворы.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-item-line"></div>
+        <div class="why-item-title">под вас</div>
+        <p class="why-item-body">Кастомизируем маршрут под ваши интересы, темп и настроение.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section reveal">
+  <div class="quote-mark">"</div>
+  <p class="quote-text">Казань ждала нас именно такой —<br>настоящей, тёплой, своей</p>
+  <div class="quote-author">скоро здесь появятся слова наших первых гостей</div>
+</div>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="dest-header reveal">
+    <div class="section-eyebrow">маршруты</div>
+    <h2 class="section-title" style="color:var(--dark);">места,<br>которые <em>мы любим</em></h2>
+  </div>
+  <div class="dest-grid reveal">
+    <div class="dest-card">
+      <div class="dest-ph">Казань · панорама города</div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-label">
+        <span class="dest-card-sub">главное</span>
+        Казань
+      </div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-ph">Свияжск</div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-label">
+        <span class="dest-card-sub">остров-град</span>
+        Свияжск
+      </div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-ph">Раифа</div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-label">
+        <span class="dest-card-sub">монастырь</span>
+        Раифа
+      </div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-ph">Голубое озеро</div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-label">
+        <span class="dest-card-sub">природа</span>
+        Голубое озеро
+      </div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-ph">Мингер</div>
+      <div class="dest-card-overlay"></div>
+      <div class="dest-card-label">
+        <span class="dest-card-sub">Татарстан</span>
+        Мингер
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner reveal">
+    <div class="section-eyebrow">написать нам</div>
+    <h2 class="section-title" style="color:var(--cream);margin-bottom:12px;">готовы<br><em>в путь?</em></h2>
+    <p class="contact-sub">Приезжайте — мы позаботимся обо всём остальном</p>
+    <div class="contact-btns">
+      <a href="https://t.me/batyr_kazan" class="btn-primary">написать в Telegram</a>
+      <a href="https://wa.me/79377766687" class="btn-secondary">написать в WhatsApp</a>
+    </div>
+    <div class="contact-details">
+      <a href="tel:+79377766687">+7 (937) 776-66-87</a>
+      &nbsp;·&nbsp;
+      Казань, Республика Татарстан
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">БАТЫР</a>
+  <div class="footer-links">
+    <a href="#tours">туры</a>
+    <a href="#about">о нас</a>
+    <a href="#contact">контакты</a>
+  </div>
+  <div class="footer-copy">© 2025 · семейное бюро путешествий · Казань</div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
