@@ -1,0 +1,3415 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>БАТЫР — Семейные путешествия по Казани</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="image-slot.js"></script>
+  <style>
+    :root {
+      --emerald-dark: #1A261C;
+      --emerald: #3D5744;
+      --emerald-soft: #5C7264;
+      --cream: #F2E8DC;
+      --cream-2: #EADFCF;
+      --gold: #B89A78;
+      --gold-light: #D4B896;
+      --ink: #1A261C;
+      --paper: #FBF7F0;
+      --line: rgba(184, 154, 120, .35);
+      --r-lg: 28px;
+      --r-md: 18px;
+      --r-sm: 10px;
+      --maxw: 1480px;
+      --gap: 96px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: #fff
+    }
+
+    /* Type */
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      margin: 0;
+      color: var(--ink);
+      letter-spacing: .005em
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 84px);
+      line-height: 1.04;
+      font-weight: 400
+    }
+
+    h2 {
+      font-size: clamp(36px, 4.4vw, 60px);
+      line-height: 1.08
+    }
+
+    h3 {
+      font-size: clamp(26px, 2.2vw, 34px);
+      line-height: 1.15
+    }
+
+    h4 {
+      font-size: 22px;
+      line-height: 1.2
+    }
+
+    p {
+      margin: 0 0 1em 0;
+      text-wrap: pretty
+    }
+
+    .eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    .lede {
+      font-size: 19px;
+      line-height: 1.65;
+      color: #3a3a35;
+      max-width: 62ch
+    }
+
+    .muted {
+      color: #6b6e63
+    }
+
+    em.italic {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400
+    }
+
+    /* Wrap */
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 56px
+    }
+
+    @media (max-width:880px) {
+      .wrap {
+        padding: 0 24px
+      }
+
+      :root {
+        --gap: 64px
+      }
+    }
+
+    /* Top promo bar */
+    .promo {
+      background: var(--emerald);
+      color: var(--cream);
+      text-align: center;
+      padding: 14px 16px;
+      font-size: 14px;
+      letter-spacing: .02em;
+    }
+
+    .promo em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px
+    }
+
+    /* Header */
+    header.site {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      transition: background-color .35s ease, border-color .35s ease, backdrop-filter .35s ease, box-shadow .35s ease;
+    }
+
+    header.site.scrolled {
+      background: rgba(251, 247, 240, .92);
+      backdrop-filter: saturate(140%) blur(14px);
+      -webkit-backdrop-filter: saturate(140%) blur(14px);
+      border-bottom-color: var(--line);
+      box-shadow: 0 2px 24px rgba(26, 38, 28, .05);
+    }
+
+    /* When header is transparent over the hero, invert its content colors for legibility */
+    header.site:not(.scrolled) .brand {
+      color: var(--cream)
+    }
+
+    header.site:not(.scrolled) .brand span:not(.brand-mark) {
+      color: var(--cream)
+    }
+
+    header.site:not(.scrolled) .phone {
+      color: var(--cream)
+    }
+
+    header.site:not(.scrolled) .phone:hover {
+      color: var(--gold-light)
+    }
+
+    header.site:not(.scrolled) .divider {
+      background: rgba(242, 232, 220, .3)
+    }
+
+    header.site:not(.scrolled) .iconlinks a {
+      border-color: rgba(242, 232, 220, .35);
+      color: var(--cream);
+    }
+
+    header.site:not(.scrolled) .iconlinks a:hover {
+      border-color: var(--gold-light);
+      color: var(--gold-light)
+    }
+
+    header.site:not(.scrolled) .btn-outline {
+      color: var(--cream);
+      border-color: rgba(242, 232, 220, .6);
+    }
+
+    header.site:not(.scrolled) .btn-outline:hover {
+      background: var(--cream);
+      color: var(--emerald-dark);
+      border-color: var(--cream);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 18px 56px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: var(--emerald-dark);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+    }
+
+    .brand-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block
+    }
+
+    .brand-mark svg path {
+      fill: var(--gold);
+      transition: fill .25s
+    }
+
+    .brand:hover .brand-mark svg path {
+      fill: var(--gold-light)
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 40px
+    }
+
+    .divider {
+      width: 1px;
+      height: 22px;
+      background: var(--line)
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px
+    }
+
+    .phone {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: var(--emerald-dark);
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: color .2s;
+      white-space: nowrap;
+    }
+
+    .phone:hover {
+      color: var(--gold)
+    }
+
+    .iconlinks {
+      display: flex;
+      gap: 12px
+    }
+
+    .iconlinks a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--emerald);
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .iconlinks a:hover {
+      border-color: var(--gold);
+      color: var(--gold)
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 30px;
+      border-radius: 999px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all .25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #fff
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--emerald-dark);
+      border-color: var(--emerald-dark)
+    }
+
+    .btn-outline:hover {
+      background: var(--emerald-dark);
+      color: #fff
+    }
+
+    .btn-outline-cream {
+      background: transparent;
+      color: var(--cream);
+      border-color: rgba(242, 232, 220, .6)
+    }
+
+    .btn-outline-cream:hover {
+      background: var(--cream);
+      color: var(--emerald-dark);
+      border-color: var(--cream)
+    }
+
+    .link-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--emerald-dark);
+      text-decoration: none;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold);
+      background: transparent;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .link-cta:hover {
+      color: var(--gold)
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--emerald-dark);
+      color: var(--cream);
+      border-radius: 0;
+      width: 100%;
+      aspect-ratio: 1672 / 1050;
+      max-height: 100vh;
+      min-height: 720px;
+      display: flex;
+      margin-top: -88px;
+      /* let hero slide under transparent header */
+      padding-top: 88px;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(90deg, rgba(26, 38, 28, .78) 0%, rgba(26, 38, 28, .55) 45%, rgba(26, 38, 28, .25) 100%), url('assets/hero.png');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 56px clamp(56px, 7vh, 88px);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-inner>div {
+      max-width: 760px
+    }
+
+    .hero h1 {
+      color: var(--cream);
+      margin-top: 18px;
+      margin-bottom: 18px;
+      max-width: 16ch;
+      font-size: clamp(32px, 3.6vw, 54px);
+      line-height: 1.06;
+      font-weight: 400
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light)
+    }
+
+    .hero .lede {
+      color: rgba(242, 232, 220, .86);
+      max-width: 54ch;
+      margin-bottom: 26px;
+      font-size: clamp(14px, 1.05vw, 16px);
+      line-height: 1.55
+    }
+
+    .hero-eyebrow {
+      color: var(--gold-light);
+      letter-spacing: .32em;
+      font-size: clamp(10px, .82vw, 12px)
+    }
+
+    .hero .btn {
+      padding: 13px 24px;
+      font-size: 12px
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center
+    }
+
+    .hero-cta-row .micro {
+      display: block;
+      margin-top: 18px;
+      color: rgba(242, 232, 220, .65);
+      font-size: 13px;
+      letter-spacing: .04em;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-left: 26px;
+      border-left: 1px solid rgba(212, 184, 150, .35);
+    }
+
+    .hero-trust .item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .hero-trust .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(22px, 1.9vw, 28px);
+      color: var(--gold-light);
+      line-height: 1;
+      min-width: 24px;
+    }
+
+    .hero-trust p {
+      margin: 0;
+      color: rgba(242, 232, 220, .92);
+      font-size: clamp(13px, .95vw, 14.5px);
+      line-height: 1.5
+    }
+
+    .hero-trust strong {
+      color: var(--cream);
+      font-weight: 600
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      pointer-events: none;
+    }
+
+    .hero-scroll .label {
+      position: relative;
+      color: rgba(242, 232, 220, .32);
+      background-image: linear-gradient(180deg,
+          rgba(242, 232, 220, 0) 0%,
+          rgba(242, 232, 220, 0) 30%,
+          var(--gold-light) 50%,
+          rgba(242, 232, 220, 0) 70%,
+          rgba(242, 232, 220, 0) 100%);
+      background-size: 100% 320%;
+      background-repeat: no-repeat;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: scrollShimmer 2.6s cubic-bezier(.55, .05, .45, .95) infinite;
+    }
+
+    .hero-scroll .label::before {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      color: rgba(242, 232, 220, .32);
+      -webkit-text-fill-color: rgba(242, 232, 220, .32);
+      z-index: -1;
+    }
+
+    .hero-scroll .line {
+      position: relative;
+      width: 1px;
+      height: 54px;
+      background: linear-gradient(180deg, rgba(212, 184, 150, .18) 0%, rgba(212, 184, 150, .18) 100%);
+      overflow: hidden;
+    }
+
+    .hero-scroll .line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -40%;
+      height: 40%;
+      background: linear-gradient(180deg, transparent 0%, var(--gold-light) 60%, #fff 100%);
+      animation: scrollDrip 2.6s cubic-bezier(.55, .05, .45, .95) infinite;
+      box-shadow: 0 0 8px rgba(212, 184, 150, .5);
+    }
+
+    @keyframes scrollShimmer {
+      0% {
+        background-position: 50% 100%;
+      }
+
+      100% {
+        background-position: 50% 0%;
+      }
+    }
+
+    @keyframes scrollDrip {
+      0% {
+        top: -40%;
+      }
+
+      100% {
+        top: 120%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hero-scroll .label,
+      .hero-scroll .line::after {
+        animation: none
+      }
+
+      .hero-scroll .label {
+        color: rgba(242, 232, 220, .6);
+        -webkit-text-fill-color: rgba(242, 232, 220, .6);
+        background: none
+      }
+    }
+
+    /* Hero entrance animation */
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero .anim {
+      opacity: 0;
+      animation: heroIn .9s cubic-bezier(.2, .7, .2, 1) forwards;
+    }
+
+    .hero .anim.d1 {
+      animation-delay: .05s
+    }
+
+    .hero .anim.d2 {
+      animation-delay: .25s
+    }
+
+    .hero .anim.d3 {
+      animation-delay: .45s
+    }
+
+    .hero .anim.d4 {
+      animation-delay: .65s
+    }
+
+    .hero .anim.d5 {
+      animation-delay: .85s
+    }
+
+    .hero .anim.d6 {
+      animation-delay: 1.05s
+    }
+
+    .hero .anim.d7 {
+      animation-delay: 1.25s
+    }
+
+    .hero .anim.d8 {
+      animation-delay: 1.45s
+    }
+
+    .hero .anim.d9 {
+      animation-delay: 1.65s
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero .anim {
+        opacity: 1;
+        animation: none
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: var(--gap) 0;
+      position: relative
+    }
+
+    section.dark {
+      background: var(--emerald-dark);
+      color: var(--cream)
+    }
+
+    section.dark h2 {
+      color: var(--cream)
+    }
+
+    section.cream {
+      background: var(--cream)
+    }
+
+    section.paper {
+      background: var(--paper)
+    }
+
+    /* Section 2 — Individual format */
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .section-head .left {
+      max-width: 560px
+    }
+
+    .section-head h2 {
+      margin-top: 18px
+    }
+
+    .section-head .right {
+      padding-bottom: 8px
+    }
+
+    @media (max-width:880px) {
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 24px
+      }
+    }
+
+    .three-up {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 42px 36px;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section.cream .card {
+      background: #fff
+    }
+
+    .card .ic {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .card h3 {
+      margin-bottom: 14px
+    }
+
+    .card p {
+      margin: 0;
+      color: #3a3a35;
+      font-size: 15.5px;
+      line-height: 1.65
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold)
+    }
+
+    @media (max-width:880px) {
+      .three-up {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Section 3 — Process steps */
+    .process {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    @media (max-width:980px) {
+      .process {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 28px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .step:last-child {
+      border-bottom: 1px solid var(--line)
+    }
+
+    .step .n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .step h3 {
+      font-size: 24px;
+      margin-bottom: 6px
+    }
+
+    .step p {
+      margin: 0;
+      color: #3a3a35;
+      font-size: 15.5px
+    }
+
+    .process-aside {
+      position: sticky;
+      top: 120px;
+      background: var(--emerald-dark);
+      color: var(--cream);
+      border-radius: var(--r-md);
+      padding: 48px 40px;
+      overflow: hidden;
+    }
+
+    .process-aside .eyebrow {
+      color: var(--gold-light)
+    }
+
+    .process-aside h3 {
+      color: var(--cream);
+      margin: 12px 0 18px;
+      font-size: 32px
+    }
+
+    .process-aside p {
+      color: rgba(242, 232, 220, .78);
+      font-size: 15.5px
+    }
+
+    .process-aside .btn {
+      margin-top: 22px
+    }
+
+    .aside-img {
+      margin-top: 30px;
+      height: 240px;
+      border-radius: 14px;
+      overflow: hidden;
+      background-image: url('assets/process.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Section 4 — Scenarios */
+    .scenarios {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px
+    }
+
+    .scen {
+      border-radius: var(--r-md);
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      transition: all .3s;
+    }
+
+    .scen:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 60px -30px rgba(26, 38, 28, .35)
+    }
+
+    .scen .img {
+      aspect-ratio: 4/3;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .scen .img .tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(251, 247, 240, .94);
+      color: var(--emerald-dark);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .scen .body {
+      padding: 32px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1
+    }
+
+    .scen h3 {
+      font-size: 28px
+    }
+
+    .scen .meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .scen .pill {
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: var(--emerald);
+      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--paper);
+    }
+
+    .scen .for {
+      font-size: 14px;
+      color: #6b6e63;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif
+    }
+
+    .scen p {
+      margin: 0;
+      font-size: 15px;
+      color: #3a3a35
+    }
+
+    .scen .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .scen .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--emerald-dark)
+    }
+
+    .scen .price small {
+      font-family: 'Raleway', sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #6b6e63;
+      display: block
+    }
+
+    /* Layout for 5 cards: 2 large top + 3 below */
+    .scen-1,
+    .scen-2 {
+      grid-column: span 6
+    }
+
+    .scen-3,
+    .scen-4,
+    .scen-5 {
+      grid-column: span 4
+    }
+
+    @media (max-width: 1100px) {
+
+      .scen-1,
+      .scen-2,
+      .scen-3,
+      .scen-4,
+      .scen-5 {
+        grid-column: span 6
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .scen-1,
+      .scen-2,
+      .scen-3,
+      .scen-4,
+      .scen-5 {
+        grid-column: span 12
+      }
+    }
+
+    .scenarios-cta {
+      margin-top: 60px;
+      background: var(--cream-2);
+      border-radius: var(--r-md);
+      padding: 48px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .scenarios-cta h3 {
+      font-size: 34px;
+      max-width: 520px
+    }
+
+    .scenarios-cta p {
+      margin: 6px 0 0;
+      color: #3a3a35
+    }
+
+    /* Section 5 — Who we are */
+    .who {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    @media (max-width:980px) {
+      .who {
+        grid-template-columns: 1fr;
+        gap: 48px
+      }
+    }
+
+    .who-media {
+      aspect-ratio: 4/5;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1602797376532-04ec55d05ea7?w=1400&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .who-media .badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--paper);
+      color: var(--emerald-dark);
+      padding: 14px 22px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 14px 40px -20px rgba(26, 38, 28, .6);
+    }
+
+    .who-media .badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold)
+    }
+
+    .who-media .badge span {
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase
+    }
+
+    .who h2 {
+      margin: 22px 0 26px
+    }
+
+    .who-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 42px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .who-stats .v {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      line-height: 1;
+      color: var(--emerald-dark)
+    }
+
+    .who-stats .v em {
+      color: var(--gold);
+      font-style: italic
+    }
+
+    .who-stats .l {
+      font-size: 13px;
+      color: #6b6e63;
+      margin-top: 6px;
+      letter-spacing: .04em
+    }
+
+    /* Section — Why us */
+    .why {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    @media (max-width:980px) {
+      .why {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+    }
+
+    .why-head h2 {
+      margin: 18px 0 22px
+    }
+
+    .why-head .lede {
+      color: #3a3a35
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0
+    }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: 84px 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .why-item:last-child {
+      border-bottom: 1px solid var(--line)
+    }
+
+    .why-item .n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .why-item h3 {
+      font-size: 24px;
+      margin: 0 0 4px;
+      color: var(--emerald-dark)
+    }
+
+    .why-item p {
+      margin: 0;
+      color: #3a3a35;
+      font-size: 15.5px;
+      line-height: 1.55
+    }
+
+    .why-item .ic {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--emerald);
+      flex-shrink: 0;
+    }
+
+    .why-item:hover .ic {
+      border-color: var(--gold);
+      color: var(--gold)
+    }
+
+    /* Section — Reviews */
+    .reviews-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 64px
+    }
+
+    .reviews-head h2 {
+      margin: 18px 0 18px
+    }
+
+    .reviews-head .lede {
+      margin: 0 auto;
+      color: rgba(242, 232, 220, .78)
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+    }
+
+    .review {
+      background: rgba(242, 232, 220, .04);
+      border: 1px solid rgba(212, 184, 150, .18);
+      border-radius: var(--r-md);
+      padding: 40px 38px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      transition: border-color .25s, transform .25s, background .25s;
+    }
+
+    .review:hover {
+      border-color: rgba(212, 184, 150, .45);
+      background: rgba(242, 232, 220, .06);
+      transform: translateY(-2px)
+    }
+
+    .review .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 80px;
+      color: var(--gold);
+      line-height: .8;
+      height: 30px;
+      margin-top: -6px;
+      opacity: .9;
+    }
+
+    .review .text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--cream);
+      font-weight: 300;
+      text-wrap: pretty;
+    }
+
+    .review .text em {
+      color: var(--gold-light);
+      font-style: italic
+    }
+
+    .review .meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      padding-top: 22px;
+      border-top: 1px solid rgba(212, 184, 150, .18);
+    }
+
+    .review .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--emerald-dark);
+      background: var(--gold-light);
+      flex-shrink: 0;
+    }
+
+    .review .who-line {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0
+    }
+
+    .review .name {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: .02em
+    }
+
+    .review .trip {
+      font-size: 12.5px;
+      color: rgba(242, 232, 220, .6);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 14.5px
+    }
+
+    .review .stars {
+      margin-left: auto;
+      color: var(--gold-light);
+      letter-spacing: .12em;
+      font-size: 13px;
+      white-space: nowrap
+    }
+
+    /* Grid spans: 5 reviews — 4/4/4 top, 6/6 bottom */
+    .review.r1,
+    .review.r2,
+    .review.r3 {
+      grid-column: span 4
+    }
+
+    .review.r4,
+    .review.r5 {
+      grid-column: span 6
+    }
+
+    .review.r5 .text,
+    .review.r4 .text {
+      font-size: 24px
+    }
+
+    @media (max-width:1100px) {
+
+      .review.r1,
+      .review.r2,
+      .review.r3 {
+        grid-column: span 6
+      }
+
+      .review.r4,
+      .review.r5 {
+        grid-column: span 6
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .review.r1,
+      .review.r2,
+      .review.r3,
+      .review.r4,
+      .review.r5 {
+        grid-column: span 12
+      }
+    }
+
+    .reviews-foot {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .reviews-foot .rating-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .reviews-foot .rating-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px
+    }
+
+    .reviews-foot .rating-meta .stars-big {
+      color: var(--gold-light);
+      letter-spacing: .16em;
+      font-size: 18px
+    }
+
+    .reviews-foot .rating-meta .note {
+      font-size: 13.5px;
+      color: rgba(242, 232, 220, .7);
+      letter-spacing: .06em
+    }
+
+    .reviews-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(212, 184, 150, .3)
+    }
+
+    /* Section 6 — Form */
+    .form-shell {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 80px;
+    }
+
+    @media (max-width:1080px) {
+      .form-shell {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .form-aside {
+        position: relative;
+        top: 0 !important
+      }
+    }
+
+    .form-aside {
+      position: sticky;
+      top: 120px;
+      align-self: start
+    }
+
+    .form-aside h2 {
+      margin: 16px 0 22px
+    }
+
+    .form-aside .lede {
+      color: rgba(242, 232, 220, .82)
+    }
+
+    .form-aside .small-note {
+      margin-top: 36px;
+      padding: 22px 24px;
+      background: rgba(212, 184, 150, .08);
+      border: 1px solid rgba(212, 184, 150, .25);
+      border-radius: var(--r-md);
+      color: rgba(242, 232, 220, .85);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .form-aside .small-note em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 17px;
+      display: block;
+      margin-bottom: 8px
+    }
+
+    .form-card {
+      background: var(--paper);
+      border-radius: var(--r-lg);
+      padding: 56px 60px;
+      color: var(--ink);
+    }
+
+    @media (max-width:680px) {
+      .form-card {
+        padding: 36px 24px
+      }
+    }
+
+    .form-block {
+      padding: 22px 0 32px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .form-block:last-of-type {
+      border-bottom: none
+    }
+
+    .form-block-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .form-block-title .n {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--gold);
+      font-size: 24px;
+    }
+
+    .form-block-title h3 {
+      font-size: 24px;
+      color: var(--emerald-dark)
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-bottom: 18px
+    }
+
+    .form-row.one {
+      grid-template-columns: 1fr
+    }
+
+    @media (max-width:680px) {
+      .form-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .field label {
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      font-weight: 500;
+    }
+
+    .field .hint {
+      font-size: 13px;
+      color: #6b6e63;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 15.5px;
+      color: var(--ink);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 96px;
+      resize: vertical
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(184, 154, 120, .15);
+    }
+
+    .field .info {
+      background: rgba(184, 154, 120, .08);
+      border-left: 0;
+      border: 1px dashed var(--gold);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: #3a3a35;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .radio-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .radio-row label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink);
+      transition: all .2s;
+    }
+
+    .radio-row label:hover {
+      border-color: var(--gold)
+    }
+
+    .radio-row input {
+      accent-color: var(--gold)
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .form-final {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--emerald-dark);
+      max-width: 48ch;
+      line-height: 1.45;
+    }
+
+    /* Section 7 — Messengers */
+    .messengers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width:880px) {
+      .messengers {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .msg-card {
+      border-radius: var(--r-md);
+      padding: 48px 44px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      transition: all .25s;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .msg-card:hover {
+      background: #fff;
+      border-color: var(--gold);
+      transform: translateY(-2px)
+    }
+
+    .msg-card .ic {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--emerald-dark);
+      color: var(--cream);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .msg-card h4 {
+      margin: 0 0 4px;
+      font-size: 24px
+    }
+
+    .msg-card p {
+      margin: 0;
+      color: #6b6e63;
+      font-size: 14.5px
+    }
+
+    .pre-footer-head {
+      text-align: center;
+      margin-bottom: 48px
+    }
+
+    .pre-footer-head h2 {
+      margin-bottom: 14px
+    }
+
+    /* Footer */
+    footer.site {
+      background: var(--emerald-dark);
+      color: rgba(242, 232, 220, .82);
+      padding: 80px 0 28px;
+      border-radius: var(--r-lg) var(--r-lg) 0 0;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(212, 184, 150, .2);
+    }
+
+    @media (max-width:880px) {
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px
+      }
+    }
+
+    .foot-brand .brand {
+      color: var(--cream)
+    }
+
+    .foot-brand p {
+      color: rgba(242, 232, 220, .7);
+      max-width: 38ch;
+      margin-top: 18px;
+      font-size: 15px
+    }
+
+    .foot-col h4 {
+      color: var(--gold-light);
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      margin-bottom: 18px
+    }
+
+    .foot-col a,
+    .foot-col li {
+      display: block;
+      color: rgba(242, 232, 220, .78);
+      text-decoration: none;
+      font-size: 14.5px;
+      line-height: 2;
+    }
+
+    .foot-col a:hover {
+      color: var(--gold-light)
+    }
+
+    .foot-col ul {
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: rgba(242, 232, 220, .5);
+    }
+
+    .foot-bottom a {
+      color: rgba(242, 232, 220, .6);
+      text-decoration: none
+    }
+
+    .foot-bottom a:hover {
+      color: var(--gold-light)
+    }
+
+    /* Small ornament */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--gold);
+    }
+
+    .ornament .line {
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: .4
+    }
+
+    .ornament svg {
+      flex-shrink: 0
+    }
+
+    /* Reveal on scroll - subtle */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s ease, transform .8s ease
+    }
+
+    .fade-up.in {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* === Scenario Modal === */
+    .scen-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(15, 22, 16, .55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 40px 24px;
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+
+    .scen-modal.open {
+      display: flex;
+      opacity: 1
+    }
+
+    body.modal-open {
+      overflow: hidden
+    }
+
+    .scen-modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      background: var(--paper);
+      border-radius: var(--r-lg);
+      padding: 56px 64px 64px;
+      box-shadow: 0 40px 100px -30px rgba(0, 0, 0, .5);
+      transform: translateY(20px);
+      transition: transform .4s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .scen-modal.open .scen-modal-card {
+      transform: translateY(0)
+    }
+
+    @media (max-width: 880px) {
+      .scen-modal {
+        padding: 0
+      }
+
+      .scen-modal-card {
+        padding: 32px 22px 48px;
+        border-radius: 0;
+        max-width: 100%;
+        min-height: 100vh
+      }
+    }
+
+    .scen-modal-close {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--emerald-dark);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all .2s;
+      z-index: 2;
+    }
+
+    .scen-modal-close:hover {
+      background: rgba(26, 38, 28, .06);
+      border-color: var(--line)
+    }
+
+    .scen-modal-close svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.6
+    }
+
+    .scen-modal-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: flex-start;
+      padding-right: 60px;
+      margin-bottom: 48px;
+    }
+
+    .scen-modal-head h2 {
+      font-size: clamp(34px, 3.6vw, 50px);
+      line-height: 1.04;
+      font-weight: 400;
+      color: var(--emerald-dark);
+      max-width: 18ch;
+    }
+
+    .scen-modal-head .time {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      color: var(--emerald-dark);
+      padding-top: 12px;
+    }
+
+    .scen-modal-head .time svg {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      color: var(--emerald)
+    }
+
+    .scen-modal-head .time-text {
+      font-size: 16px;
+      line-height: 1.5
+    }
+
+    .scen-modal-head .time-text b {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 2px
+    }
+
+    @media (max-width: 880px) {
+      .scen-modal-head {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-right: 50px;
+        margin-bottom: 32px
+      }
+    }
+
+    /* Day row */
+    .scen-day {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 64px;
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .scen-day:first-of-type {
+      border-top: none;
+      padding-top: 0
+    }
+
+    @media (max-width: 880px) {
+      .scen-day {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px 0
+      }
+    }
+
+    /* Carousel */
+    .scen-carousel {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #ddd;
+    }
+
+    .scen-carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .scen-carousel-slide {
+      flex: 0 0 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .scen-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(251, 247, 240, .92);
+      color: var(--emerald-dark);
+      border: none;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all .2s;
+      box-shadow: 0 4px 14px -4px rgba(0, 0, 0, .3);
+    }
+
+    .scen-carousel-btn:hover {
+      background: #fff
+    }
+
+    .scen-carousel-btn.prev {
+      left: 12px
+    }
+
+    .scen-carousel-btn.next {
+      right: 12px
+    }
+
+    .scen-carousel-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2
+    }
+
+    .scen-carousel-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      z-index: 2;
+    }
+
+    .scen-carousel-dots button {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .55);
+      border: none;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .scen-carousel-dots button.active {
+      background: #fff;
+      width: 22px;
+      border-radius: 4px
+    }
+
+    /* Day schedule */
+    .scen-day-content h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--emerald-dark);
+      margin: 0 0 18px;
+    }
+
+    .scen-day-list {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      row-gap: 16px;
+      column-gap: 24px;
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .scen-day-list .t {
+      color: var(--emerald);
+      font-variant-numeric: tabular-nums;
+      font-weight: 500
+    }
+
+    /* Footer (price + included/excluded + CTA) */
+    .scen-modal-foot {
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .scen-price-head h3 {
+      font-size: clamp(28px, 2.4vw, 36px);
+      font-weight: 400;
+      color: var(--emerald-dark);
+      margin: 0 0 8px;
+    }
+
+    .scen-price-head .meta {
+      color: #555a51;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    .scen-price-head .price-big {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(32px, 3vw, 44px);
+      font-weight: 500;
+      color: var(--emerald);
+      letter-spacing: .01em;
+    }
+
+    .scen-incl {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    @media (max-width: 880px) {
+      .scen-incl {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+    }
+
+    .scen-incl-col h5 {
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #6b6e63;
+      font-weight: 500;
+      margin: 0 0 18px;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .scen-incl-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .scen-incl-col li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .scen-incl-col.included li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--emerald);
+    }
+
+    .scen-incl-col.excluded li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid var(--emerald-soft);
+    }
+
+    .scen-cta-row {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .scen-cta-row .btn {
+      padding: 18px 36px;
+      font-size: 13px
+    }
+
+    .scen-cta-row .micro {
+      font-size: 13px;
+      color: #6b6e63;
+    }
+
+    .scen-cta-row .micro em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--emerald-dark);
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        aspect-ratio: auto;
+        height: auto;
+        max-height: none
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 72px 24px 80px
+      }
+
+      .nav {
+        padding: 14px 24px
+      }
+
+      .nav-left {
+        gap: 18px
+      }
+
+      .phone {
+        font-size: 18px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Promo bar -->
+  <div class="promo">
+    <em>Бронируйте поездку в июне 2026 —</em> подарим семейный гастро-ужин в Старо-Татарской слободе.
+  </div>
+
+  <!-- Header -->
+  <header class="site">
+    <div class="nav">
+      <div class="nav-left">
+        <a href="#" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M45.618 80.665C65.816 85.552 73.493 90.884 89.646 102.809C93.096 106.344 96.256 109.009 101.508 108.539C104.016 107.467 106.818 105.717 108.493 103.535C117.323 97.422 127.847 89.829 137.452 85.569C157.749 76.568 151.089 85.63 151.997 96.794C153.385 113.845 160.848 129.921 149.978 146.183C141.632 158.67 126.026 169.693 111.604 172.889C108.081 171.698 103.059 169.466 99.496 168.017C84.494 176.077 79.496 170.306 66.438 162.481C53.128 154.504 42.74 139.232 44.6 123.161C46.453 107.157 48.991 96.99 45.618 80.665ZM73.248 128.455C75.092 139.127 77.181 146.887 83.815 155.775C85.23 157.67 86.715 160.675 89.172 161.204C90.539 160.07 90.111 160.597 90.577 158.572C89.834 155.796 88.561 153.306 87.914 150.683C85.18 139.6 89.566 126.704 96.486 117.939C84.705 105.087 70.57 95.065 54.039 89.221C52.135 119.094 42.952 151.406 79.635 162.338C77.599 153.372 60.154 127.962 67.958 118.884C71.348 119.843 72.594 125.333 73.248 128.455ZM148.301 119.27C148.483 117.796 148.24 117.194 147.903 115.772C147.207 107.198 146.429 98.388 146.141 89.808C126.502 94.822 117.495 104.45 103.74 118.031C110.077 128.324 114.867 140.041 111.912 152.325C110.919 156.452 110.422 158.958 106.616 161.15L107.286 162.611C113.011 164.433 123.812 144.406 124.731 138.626C125.563 133.397 128.073 121.778 131.058 118.058C136.005 120.401 134.135 124.609 133.15 129.312L132.514 133.702C131.603 136.89 130.555 141.131 129.112 144.017C126.179 150.404 121.976 157.364 118.431 163.541C132.677 158.266 142.342 150.906 147.434 136.455C148.796 130.23 148.563 125.529 148.301 119.27ZM104.552 160.866C106.238 148.766 109.485 133.855 99.691 124.477C91.901 137.118 93.059 146.633 94.612 161.035L95.484 161.842L97.887 161.75C100.165 161.35 102.236 160.899 104.552 160.866Z" />
+              <path
+                d="M84.566 69.055C87.563 54.796 91.498 42.515 99.981 30.338C106.936 42.186 113.989 54.865 115.566 68.722C119.95 67.885 135.735 65.045 137.953 70.06C136.597 78.252 119.583 85.686 113.611 91.032C110.74 93.602 109.114 97.315 106.524 99.929L104.427 96.872C102.994 95.039 102.223 93.621 100.107 92.784C96.733 93.46 96.493 96.101 93.671 98.415C89.92 96.908 87.763 91.791 84.6 89.32C80.143 85.837 59.679 76.891 61.788 69.899C66.531 65.661 79.01 67.522 84.566 69.055ZM89.845 70.303C95.049 75.294 95.742 77.796 100.003 82.81C103.153 78.563 106.136 74.277 109.867 70.533C108.548 63.126 106.044 48.063 99.807 43.239C94.303 53.204 91.946 58.865 89.845 70.303ZM92.647 86.874C92.324 73.462 81.498 73.753 70.903 73.853C77.792 78.505 84.906 84.198 92.647 86.874ZM109.942 86.315C115.542 82.097 124.363 77.297 128.903 73.597C127.69 73.547 126.477 73.477 125.264 73.48C119.37 74.095 107.661 75.89 107.083 84.907C107.022 85.868 107.439 85.961 108.113 86.685C109.086 86.606 109.229 86.747 109.942 86.685Z" />
+            </svg>
+          </span>
+          <span>БАТЫР</span>
+        </a>
+        <span class="divider"></span>
+        <a href="tel:+79377766687" class="phone">+7 937 776-66-87</a>
+      </div>
+      <div class="nav-right">
+        <a href="#form" class="btn btn-primary">Получить маршрут</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="hero-media"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow hero-eyebrow anim d1">Семейные путешествия comfort+ по Казани и окрестностям</div>
+        <h1 class="anim d2">Подберём семейный отдых, где <em>комфортно</em> и интересно детям и&nbsp;взрослым</h1>
+        <p class="lede anim d3">Подберём 2–3 продуманных сценария поездки, проверим отели, перелёты и логистику, учтём
+          детей и останемся на связи до и во время отдыха.</p>
+        <div class="hero-cta-row anim d4">
+          <a href="#form" class="btn btn-primary">Получить варианты поездки →</a>
+          <a href="#scenarios" class="btn btn-outline-cream">Посмотреть готовые предложения</a>
+        </div>
+        <span class="micro anim d5"
+          style="display:block; margin-top:16px; color:rgba(242,232,220,.65); font-size:13px;">Уточним состав семьи,
+          даты, бюджет и предложим подходящие сценарии отдыха.</span>
+      </div>
+    </div>
+    <div class="hero-scroll anim d9">
+      <span class="label" data-text="Листайте ниже">Листайте ниже</span>
+      <span class="line" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <!-- Section 2 — Individual format -->
+  <section id="format" class="cream" data-screen-label="02 Формат">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="left">
+          <div class="eyebrow">Наш формат</div>
+          <h2>Семейный отдых в <em class="italic">вашем темпе</em>, а не по&nbsp;расписанию группы</h2>
+        </div>
+        <div class="right">
+          <p class="lede">Мы не собираем семьи в общий автобусный тур. Работаем с одной семьёй за раз — чтобы
+            внимательно продумать маршрут, логистику и детали. Подбираем программу под ваш состав, возраст детей,
+            интересы, темп и уровень комфорта.</p>
+        </div>
+      </div>
+
+      <div class="three-up">
+        <div class="card">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+          </div>
+          <h3>Ваш комфортный темп</h3>
+          <p>Маршрут строится так, чтобы дети не уставали, а взрослые успевали отдыхать: без лишних переездов, ранних
+            выездов и перегруженного расписания.</p>
+        </div>
+        <div class="card">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M4 12h16M12 4l8 8-8 8" />
+            </svg>
+          </div>
+          <h3>Подстроимся под планы</h3>
+          <p>Захотите задержаться в понравившемся месте, сделать дополнительную остановку или вернуться в отель пораньше
+            — подстроимся под вас в любой момент.</p>
+        </div>
+        <div class="card">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-7H10v7H4a1 1 0 0 1-1-1V9z" />
+            </svg>
+          </div>
+          <h3>Собранная организация</h3>
+          <p>Продумываем трансфер, отель, гида, питание и паузы в маршруте — чтобы поездка ощущалась собранной, а не
+            случайно сложенной по дороге.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — Process -->
+  <section id="process" class="paper" data-screen-label="03 Процесс">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="left">
+          <div class="eyebrow">Шаг за шагом</div>
+          <h2>Как проходит организация <em class="italic">вашей поездки</em></h2>
+        </div>
+        <div class="right">
+          <p class="lede">Пять понятных шагов — от первой заявки до возвращения домой. Без сюрпризов в графике, без
+            скрытых платежей, с одним менеджером, который ведёт вас всю дорогу.</p>
+        </div>
+      </div>
+
+      <div class="process">
+        <div class="steps">
+          <div class="step">
+            <div class="n">01</div>
+            <div>
+              <h3>Оставляете заявку</h3>
+              <p>Расскажите, кто едет, на какие даты планируете поездку и какой формат отдыха вам ближе.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="n">02</div>
+            <div>
+              <h3>Предлагаем 2–3 маршрута</h3>
+              <p>Уточняем важные нюансы и на основе заявки готовим несколько продуманных сценариев на выбор.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="n">03</div>
+            <div>
+              <h3>Вносим финальные правки</h3>
+              <p>Обсуждаем детали, меняем остановки, длительность, акценты программы — собираем окончательный вариант.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="n">04</div>
+            <div>
+              <h3>Фиксируем поездку</h3>
+              <p>Вы вносите предоплату 20%. При отмене за 2 недели предоплата возвращается полностью.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="n">05</div>
+            <div>
+              <h3>Отправляетесь отдыхать</h3>
+              <p>Все договорённости собраны, маршрут согласован, а мы остаёмся на связи по ходу поездки.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="process-aside">
+          <div class="eyebrow">УЖЕ ВЫБРАЛИ МАРШРУТ?</div>
+          <h3>Можем адаптировать готовый сценарий под вашу семью</h3>
+          <p>Свяжемся, обсудим детали, при необходимости поменяем программу под возраст детей и темп — и забронируем
+            поездку.</p>
+          <a href="#scenarios" class="btn btn-primary">Посмотреть сценарии</a>
+          <div class="aside-img"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — Scenarios -->
+  <section id="scenarios" class="cream" data-screen-label="04 Сценарии">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="left">
+          <div class="eyebrow">Готовые сценарии</div>
+          <h2>Маршруты, которые мы <em class="italic">адаптируем</em> под вашу семью</h2>
+        </div>
+        <div class="right">
+          <p class="lede">Пять собранных программ для разного состава семьи, возраста детей и темпа отдыха. Любой из них
+            мы перенастроим под вас — добавим, уберём, поменяем акценты.</p>
+        </div>
+      </div>
+
+      <div class="scenarios">
+        <article class="scen scen-1">
+          <div class="img"
+            style="background-image:linear-gradient(180deg,transparent 60%,rgba(26,38,28,.15)), url('assets/scen-1.jpg')">
+            <span class="tag">2 дня · Знакомство</span>
+          </div>
+          <div class="body">
+            <h3>Казань впервые</h3>
+            <span class="for">Для семей, которые знакомятся с Татарстаном впервые</span>
+            <p>В маршруте: Кремль, Старо-Татарская слобода, семейный обед, интерактив для детей, прогулка в комфортном
+              темпе.</p>
+            <div class="meta">
+              <span class="pill">Дети 5–14 лет</span>
+              <span class="pill">Comfort+</span>
+            </div>
+            <div class="footer-row">
+              <div class="price">от 38 000 ₽<small>за семью из 4</small></div>
+              <button type="button" class="link-cta scen-open" data-scen="scen-1">Посмотреть сценарий</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scen scen-2">
+          <div class="img"
+            style="background-image:linear-gradient(180deg,transparent 60%,rgba(26,38,28,.15)), url('assets/scen-2.jpg')">
+            <span class="tag">2 дня · Гастро</span>
+          </div>
+          <div class="body">
+            <h3>Казань гастрономическая</h3>
+            <span class="for">Тем, кто любит путешествия через вкус и впечатления</span>
+            <p>Знакомство с национальной кухней, гастрономические остановки, семейный обед, атмосферные локации и
+              детский мастер-класс.</p>
+            <div class="meta">
+              <span class="pill">Любой возраст</span>
+              <span class="pill">С детским меню</span>
+            </div>
+            <div class="footer-row">
+              <div class="price">от 46 000 ₽<small>за семью из 4</small></div>
+              <button type="button" class="link-cta scen-open" data-scen="scen-2">Посмотреть сценарий</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scen scen-3">
+          <div class="img"
+            style="background-image:linear-gradient(180deg,transparent 60%,rgba(26,38,28,.15)), url('assets/scen-3.jpg')">
+            <span class="tag">3 дня</span>
+          </div>
+          <div class="body">
+            <h3>Татарстан за пределами Казани</h3>
+            <span class="for">Свияжск, Иннополис, Болгар — спокойно и с впечатлениями</span>
+            <p>Маршрут подстраивается под возраст детей и желаемый темп — никакой суеты, только хорошие места.</p>
+            <div class="footer-row">
+              <div class="price">от 64 000 ₽<small>за семью из 4</small></div>
+              <button type="button" class="link-cta scen-open" data-scen="scen-3">Посмотреть сценарий</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scen scen-4">
+          <div class="img"
+            style="background-image:linear-gradient(180deg,transparent 60%,rgba(26,38,28,.15)), url('assets/scen-4.jpg')">
+            <span class="tag">2 дня · Спокойный темп</span>
+          </div>
+          <div class="body">
+            <h3>Казань для трёх поколений</h3>
+            <span class="for">Для семей с бабушками и дедушками</span>
+            <p>Удобная логистика, спокойный темп, комфортные рестораны, культурные точки и время для отдыха.</p>
+            <div class="footer-row">
+              <div class="price">от 52 000 ₽<small>за семью из 5</small></div>
+              <button type="button" class="link-cta scen-open" data-scen="scen-4">Посмотреть сценарий</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scen scen-5">
+          <div class="img"
+            style="background-image:linear-gradient(180deg,transparent 60%,rgba(26,38,28,.15)), url('assets/scen-5.jpg')">
+            <span class="tag">1 день · Деревня</span>
+          </div>
+          <div class="body">
+            <h3>Этнопутешествие в татарскую деревню</h3>
+            <span class="for">Для тех, кому хочется живого вовлекающего формата</span>
+            <p>Знакомство с бытом и ремёслами, национальный обед, активности для детей, спокойная прогулка без
+              перегруженного графика.</p>
+            <div class="footer-row">
+              <div class="price">от 28 000 ₽<small>за семью из 4</small></div>
+              <button type="button" class="link-cta scen-open" data-scen="scen-5">Посмотреть сценарий</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="scenarios-cta">
+        <div>
+          <div class="eyebrow">Ничего не подошло?</div>
+          <h3>Соберём поездку с нуля под ваш запрос</h3>
+          <p>Расскажите про семью и пожелания — пришлём 2–3 варианта в течение двух дней.</p>
+        </div>
+        <a href="#form" class="btn btn-primary">Получить индивидуальный маршрут →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 — Who we are -->
+  <section id="about" class="paper" data-screen-label="05 О нас">
+    <div class="wrap">
+      <div class="who">
+        <div class="who-media">
+          <img src="assets/who.jpg" alt="Семья из Казани"
+            style="width:100%; height:100%; object-fit:cover; display:block; border-radius:var(--r-lg)" />
+          <div class="badge"><span class="dot"></span><span>Семья из Казани</span></div>
+        </div>
+        <div>
+          <div class="eyebrow">Кто мы</div>
+          <h2>Показываем Казань не как туристический продукт, а&nbsp;как город, который <em class="italic">любим
+              сами</em></h2>
+          <p class="lede">Мы — семья из 4 человек, всю жизнь живём в Казани и искренне любим свой город. Знаем его не
+            только по главным достопримечательностям, но и по ощущениям: где интересно детям, где спокойно взрослым, где
+            вкусно пообедать всей семьёй, а где лучше не тратить время.</p>
+          <p class="lede" style="font-family: Raleway; font-size: 19px; color: rgb(58, 58, 53); text-align: left">
+            Поэтому мы собираем не стандартные экскурсионные программы, а семейные маршруты, в которых Казань
+            раскрывается комфортно, живо и с вниманием к деталям. </p>
+
+          <div class="who-stats">
+            <div>
+              <div class="v">7 лет</div>
+              <div class="l">в туризме</div>
+            </div>
+            <div>
+              <div class="v"><em>20+</em></div>
+              <div class="l">семей за прошлый сезон</div>
+            </div>
+            <div>
+              <div class="v"><em>4.9</em></div>
+              <div class="l">средняя оценка после поездок</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section — Why us -->
+  <section id="why" class="cream" data-screen-label="06 Почему мы">
+    <div class="wrap">
+      <div class="why">
+        <div class="why-head">
+          <div class="eyebrow">Почему мы</div>
+          <h2>Три причины, почему семьи <em class="italic">выбирают</em> нас</h2>
+          <p class="lede">Работаем с одной семьёй за раз и внимательно ведём вас всю дорогу — от первого сообщения до
+            возвращения домой.</p>
+        </div>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="n">01</div>
+            <div>
+              <h3>Индивидуальные сценарии</h3>
+              <p>2–3 варианта поездки, собранных исходя из ваших потребностей.</p>
+            </div>
+            <div class="ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M12 21s-7-4.5-7-11a7 7 0 0 1 14 0c0 6.5-7 11-7 11z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="n">02</div>
+            <div>
+              <h3>Проверенные места</h3>
+              <p>Отели, экскурсоводы и рестораны — лично, не по рейтингам.</p>
+            </div>
+            <div class="ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path d="M9 12l2 2 4-4" />
+                <path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c2 0 4 .7 5.5 1.8" />
+              </svg>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="n">03</div>
+            <div>
+              <h3>Поддержка на всём пути</h3>
+              <p>До бронирования, в поездке и после возвращения — остаёмся на связи.</p>
+            </div>
+            <div class="ic">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path
+                  d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5A8.5 8.5 0 0 1 21 11v.5z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section — Reviews -->
+  <section id="reviews" class="dark" data-screen-label="07 Отзывы">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div class="eyebrow" style="color:var(--gold-light)">Отзывы семей</div>
+        <h2>Что рассказывают те, кто <em class="italic">уже приезжал</em></h2>
+        <p class="lede">Собрали живые впечатления семей из Москвы, Петербурга, Екатеринбурга и Сочи.</p>
+      </div>
+
+      <div class="reviews">
+        <article class="review r1">
+          <div class="quote-mark">“</div>
+          <p class="text">Дети всю обратную дорогу в поезде спорили, что им понравилось больше — чак-чак или вид с
+            башни. <em>И это была самая расслабленная наша поездка за много лет.</em></p>
+          <div class="meta">
+            <div class="avatar">А</div>
+            <div class="who-line">
+              <span class="name">Анна и Дмитрий</span>
+              <span class="trip">Москва · с двумя детьми</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </article>
+
+        <article class="review r2">
+          <div class="quote-mark">“</div>
+          <p class="text">Маме 75, она переживала, что не выдержит темп. Аделина с командой всё выстроили так, что было
+            время отдохнуть после каждой точки. Мама вернулась счастливой.</p>
+          <div class="meta">
+            <div class="avatar">Е</div>
+            <div class="who-line">
+              <span class="name">Елена Кузнецова</span>
+              <span class="trip">СПб · три поколения</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </article>
+
+        <article class="review r3">
+          <div class="quote-mark">“</div>
+          <p class="text">Пробовали организовать поездку сами — утонули в вкладках. Ребята подобрали три сценария за два
+            дня. <em>Отель, рестораны — всё было как в описании.</em></p>
+          <div class="meta">
+            <div class="avatar">М</div>
+            <div class="who-line">
+              <span class="name">Мария и Сергей</span>
+              <span class="trip">Екатеринбург · 4 дня</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </article>
+
+        <article class="review r4">
+          <div class="quote-mark">“</div>
+          <p class="text">Наш сын 9 лет про любую экскурсию в первые 20 минут говорит «скучно». Здесь всё было иначе:
+            интерактив в кремле, мастер-класс в слободе, вкусный обед. <em>Он даже записал видео «лучшее путешествие
+              жизни».</em> Спасибо за внимание к деталям и за то, что вы были на связи каждый день.</p>
+          <div class="meta">
+            <div class="avatar">О</div>
+            <div class="who-line">
+              <span class="name">Ольга и Андрей Соколовы</span>
+              <span class="trip">Москва · поездка 3 дня, июнь 2025</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </article>
+
+        <article class="review r5">
+          <div class="quote-mark">“</div>
+          <p class="text">Два раза были в Казани сами — ходили по туристическим маршрутам. С «БАТЫР» увидели совсем
+            другой город: тихие дворы, семейные пекарни, места, куда ходят казанцы. <em>Будто в гости к друзьям, которые
+              живут в этом городе всю жизнь.</em></p>
+          <div class="meta">
+            <div class="avatar">Н</div>
+            <div class="who-line">
+              <span class="name">Наталья и Артём</span>
+              <span class="trip">Сочи · гастро-маршрут</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="reviews-foot">
+        <div class="rating-big">4.9</div>
+        <div class="rating-meta">
+          <span class="stars-big">★★★★★</span>
+          <span class="note">средняя оценка</span>
+        </div>
+        <div class="reviews-divider"></div>
+        <a href="#form" class="btn btn-primary">Спланировать свою поездку →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6 — Form -->
+  <section id="form" class="dark" data-screen-label="06 Заявка">
+    <div class="wrap">
+      <div class="form-shell">
+        <aside class="form-aside">
+          <div class="eyebrow" style="color:var(--gold-light)">Расскажите о себе</div>
+          <h2>Хотим узнать вас <em class="italic">до того</em>, как вы приедете</h2>
+          <p class="lede" style="color:rgba(242,232,220,.82)">Ответы помогут сделать поездку именно вашей — не просто
+            хорошей, а подходящей под состав семьи, темп и интересы.</p>
+          <div class="small-note">Это не обычный опросник. Мы внимательно изучаем каждую анкету. Если что-то покажется
+            лишним — пропустите. Если хочется рассказать больше — расскажите больше, нам всегда интересны детали!</div>
+        </aside>
+
+        <form id="tripForm" class="form-card">
+          <!-- Block 1 -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <span class="n">I</span>
+              <h3>Вы</h3>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>01 · Как вас зовут?</label>
+                <input type="text" name="name" placeholder="Имя и фамилия" required />
+                <span class="hint">Как нам обращаться к вам</span>
+              </div>
+              <div class="field">
+                <label>02 · Сколько вам лет?</label>
+                <input type="number" name="age" placeholder="35" />
+                <span class="hint">Нам важно понять темп поездки</span>
+              </div>
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>03 · Кто едет с вами?</label>
+                <input type="text" name="companions" placeholder="Партнёр, родители, друзья, другие родственники" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>04 · Сколько детей будет в поездке?</label>
+                <input type="number" name="kids_count" placeholder="2" />
+              </div>
+              <div class="field">
+                <label>05 · Возраст каждого ребёнка</label>
+                <input type="text" name="kids_ages" placeholder="Например: 4 и 9 лет" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 2 -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <span class="n">II</span>
+              <h3>Логистика</h3>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>06 · Из какого города вы едете?</label>
+                <input type="text" name="city" placeholder="Москва" />
+              </div>
+              <div class="field">
+                <label>07 · Как планируете добраться?</label>
+                <div class="radio-row">
+                  <label><input type="radio" name="transport" value="Поезд" /> Поезд</label>
+                  <label><input type="radio" name="transport" value="Самолёт" /> Самолёт</label>
+                  <label><input type="radio" name="transport" value="На машине" /> На машине</label>
+                </div>
+              </div>
+            </div>
+            <div class="field info" style="margin: 10px 0 18px">
+              <strong style="font-weight:600">*Для Москвы и Петербурга мы рекомендуем поезд.</strong> Поезда из Москвы и
+              Петербурга ходят строго по расписанию и прибывают утром прямо к началу тура. Самолёты удобны, но иногда
+              задерживаются — если летите, мы всегда на связи и подстроимся.
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>08 · Желаемые даты приезда</label>
+                <input type="text" name="dates" placeholder="Например: 15–18 июня или 22–25 июня" />
+                <span class="hint">Укажите 1–2 варианта — мы подтвердим возможность</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 3 -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <span class="n">III</span>
+              <h3>Питание и здоровье</h3>
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>09 · Аллергии или ограничения в еде</label>
+                <textarea name="allergies"
+                  placeholder="Например: нет свинины, нет глютена, вегетарианство, халяль. Если нет — напишите «нет»."></textarea>
+                <span class="hint">Важно знать заранее, чтобы обед и ужин были для вас</span>
+              </div>
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>10 · Ограничения по здоровью</label>
+                <textarea name="health"
+                  placeholder="Например: сложно долго ходить, высотобоязнь, беременность. Необязательно."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 4 -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <span class="n">IV</span>
+              <h3>Казань и вы</h3>
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>11 · Вы уже были в Казани?</label>
+                <textarea name="been_before" placeholder="Если да — что видели, что осталось незакрытым"></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>12 · С чем у вас ассоциируется Казань?</label>
+                <input type="text" name="associations" placeholder="Слово, образ, ощущение" />
+              </div>
+              <div class="field">
+                <label>13 · Что хотите увидеть или попробовать?</label>
+                <input type="text" name="wishes" placeholder="Место, блюдо, история" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 5 -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <span class="n">V</span>
+              <h3>Про вас глубже</h3>
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>14 · Что даёт вам силы в поездке?</label>
+                <textarea name="energy"
+                  placeholder="Тишина и прогулки? Разговоры с местными? Вкусная еда? Архитектура? Активность?"></textarea>
+                <span class="hint">Нет правильного ответа — любой поможет</span>
+              </div>
+            </div>
+            <div class="form-row one">
+              <div class="field">
+                <label>15 · Есть ли особый повод для поездки?</label>
+                <input type="text" name="occasion" placeholder="День рождения, годовщина, семейные выходные" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Block 6 -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <span class="n">VI</span>
+              <h3>Контакт</h3>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>16 · Номер телефона</label>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required />
+              </div>
+              <div class="field">
+                <label>17 · Telegram / WhatsApp</label>
+                <input type="text" name="messenger" placeholder="@username или номер" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <p class="form-final">Мы внимательно прочитаем каждый ответ и свяжемся с вами, чтобы обсудить детали будущей
+              поездки. <em class="italic">До встречи в Казани!</em></p>
+            <button type="submit" class="btn btn-primary">Отправить заявку →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7 — Messengers -->
+  <section class="cream" data-screen-label="07 Мессенджеры">
+    <div class="wrap">
+      <div class="pre-footer-head">
+        <div class="eyebrow">Связь напрямую</div>
+        <h2>Удобнее обсудить поездку <em class="italic">лично?</em></h2>
+        <p class="muted">Напишите нам в Telegram или WhatsApp — ответим на вопросы и подскажем, с чего начать.</p>
+      </div>
+      <div class="messengers">
+        <a href="https://t.me/batyr_kzn" target="_blank" rel="noopener" class="msg-card">
+          <div class="ic">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22 3 2 10l6 2.5L18 6l-8 8 .5 6 3.5-4 5 4z" />
+            </svg>
+          </div>
+          <div>
+            <h4>Написать в Telegram</h4>
+            <p>@batyr_kzn · в среднем отвечаем в течение часа</p>
+          </div>
+        </a>
+        <a href="https://wa.me/79377766687" target="_blank" rel="noopener" class="msg-card">
+          <div class="ic">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2zm5 14c-.3.7-1.6 1.4-2.2 1.4-.6 0-1.3 0-3.7-1-2.4-1-4-3.5-4.1-3.7-.1-.2-1-1.4-1-2.6 0-1.3.7-1.9 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.3.5.8 1.9.9 2 .1.1.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3 0 .6.3.5.9 1.4 1.9 2.3 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.7-.1.2-.2.7-.9.9-1.2.2-.3.4-.2.7-.1.3.1 1.6.7 1.9.9.3.1.4.2.5.3.1.2.1.8-.2 1.5z" />
+            </svg>
+          </div>
+          <div>
+            <h4>Написать в WhatsApp</h4>
+            <p>+7 937 776-66-87 · ежедневно с 9:00 до 21:00</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="#" class="brand">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M45.618 80.665C65.816 85.552 73.493 90.884 89.646 102.809C93.096 106.344 96.256 109.009 101.508 108.539C104.016 107.467 106.818 105.717 108.493 103.535C117.323 97.422 127.847 89.829 137.452 85.569C157.749 76.568 151.089 85.63 151.997 96.794C153.385 113.845 160.848 129.921 149.978 146.183C141.632 158.67 126.026 169.693 111.604 172.889C108.081 171.698 103.059 169.466 99.496 168.017C84.494 176.077 79.496 170.306 66.438 162.481C53.128 154.504 42.74 139.232 44.6 123.161C46.453 107.157 48.991 96.99 45.618 80.665ZM73.248 128.455C75.092 139.127 77.181 146.887 83.815 155.775C85.23 157.67 86.715 160.675 89.172 161.204C90.539 160.07 90.111 160.597 90.577 158.572C89.834 155.796 88.561 153.306 87.914 150.683C85.18 139.6 89.566 126.704 96.486 117.939C84.705 105.087 70.57 95.065 54.039 89.221C52.135 119.094 42.952 151.406 79.635 162.338C77.599 153.372 60.154 127.962 67.958 118.884C71.348 119.843 72.594 125.333 73.248 128.455ZM148.301 119.27C148.483 117.796 148.24 117.194 147.903 115.772C147.207 107.198 146.429 98.388 146.141 89.808C126.502 94.822 117.495 104.45 103.74 118.031C110.077 128.324 114.867 140.041 111.912 152.325C110.919 156.452 110.422 158.958 106.616 161.15L107.286 162.611C113.011 164.433 123.812 144.406 124.731 138.626C125.563 133.397 128.073 121.778 131.058 118.058C136.005 120.401 134.135 124.609 133.15 129.312L132.514 133.702C131.603 136.89 130.555 141.131 129.112 144.017C126.179 150.404 121.976 157.364 118.431 163.541C132.677 158.266 142.342 150.906 147.434 136.455C148.796 130.23 148.563 125.529 148.301 119.27ZM104.552 160.866C106.238 148.766 109.485 133.855 99.691 124.477C91.901 137.118 93.059 146.633 94.612 161.035L95.484 161.842L97.887 161.75C100.165 161.35 102.236 160.899 104.552 160.866Z" />
+                <path
+                  d="M84.566 69.055C87.563 54.796 91.498 42.515 99.981 30.338C106.936 42.186 113.989 54.865 115.566 68.722C119.95 67.885 135.735 65.045 137.953 70.06C136.597 78.252 119.583 85.686 113.611 91.032C110.74 93.602 109.114 97.315 106.524 99.929L104.427 96.872C102.994 95.039 102.223 93.621 100.107 92.784C96.733 93.46 96.493 96.101 93.671 98.415C89.92 96.908 87.763 91.791 84.6 89.32C80.143 85.837 59.679 76.891 61.788 69.899C66.531 65.661 79.01 67.522 84.566 69.055ZM89.845 70.303C95.049 75.294 95.742 77.796 100.003 82.81C103.153 78.563 106.136 74.277 109.867 70.533C108.548 63.126 106.044 48.063 99.807 43.239C94.303 53.204 91.946 58.865 89.845 70.303ZM92.647 86.874C92.324 73.462 81.498 73.753 70.903 73.853C77.792 78.505 84.906 84.198 92.647 86.874ZM109.942 86.315C115.542 82.097 124.363 77.297 128.903 73.597C127.69 73.547 126.477 73.477 125.264 73.48C119.37 74.095 107.661 75.89 107.083 84.907C107.022 85.868 107.439 85.961 108.113 86.685C109.086 86.606 109.229 86.747 109.942 86.685Z" />
+              </svg>
+            </span>
+            <span style="color:var(--cream)">БАТЫР</span>
+          </a>
+          <p>Индивидуальные маршруты по Казани и Татарстану.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Контакты</h4>
+          <a href="tel:+78001234567">+7 800 123-45-67</a>
+          <a href="/cdn-cgi/l/email-protection#b3dbd6dfdfdcf3d1d2c7cac19ed8d2c9d2dd9dc1c6"><span class="__cf_email__"
+              data-cfemail="aecccfdad7dc80dacfdacfdcdddacfc0eec9c3cfc7c280cdc1c3">[email&#160;protected]</span></a>
+          <a href="#">Telegram</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Instagram</a>
+        </div>
+        <div class="foot-col">
+          <h4>Сценарии</h4>
+          <ul>
+            <li><a href="#">Казань впервые</a></li>
+            <li><a href="#">Гастрономическая</a></li>
+            <li><a href="#">Татарстан вокруг</a></li>
+            <li><a href="#">Для трёх поколений</a></li>
+            <li><a href="#">Этно-деревня</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Работаем</h4>
+          <ul>
+            <li>Казань, ул. Ахтямова, 32</li>
+            <li>Ежедневно</li>
+            <li>09:00 — 21:00 МСК</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 БАТЫР · Семейные путешествия по Казани</span>
+        <div style="display:flex; gap:24px">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Договор оферты</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scenario modal -->
+  <div class="scen-modal" id="scenModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="scen-modal-card" role="document">
+      <button type="button" class="scen-modal-close" id="scenModalClose" aria-label="Закрыть">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <div class="scen-modal-head">
+        <h2 id="scenModalTitle">—</h2>
+        <div class="time">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 2" />
+          </svg>
+          <div class="time-text"><b>Время тура:</b><span id="scenModalDuration">—</span></div>
+        </div>
+      </div>
+
+      <div id="scenModalDays"></div>
+
+      <div class="scen-modal-foot">
+        <div class="scen-price-head">
+          <h3 id="scenModalPriceTitle">—</h3>
+          <div class="meta" id="scenModalPriceMeta">—</div>
+          <div class="price-big" id="scenModalPrice">—</div>
+        </div>
+        <div class="scen-incl">
+          <div class="scen-incl-col included">
+            <h5>Входит в стоимость</h5>
+            <ul id="scenModalIncluded"></ul>
+          </div>
+          <div class="scen-incl-col excluded">
+            <h5>Не входит</h5>
+            <ul id="scenModalExcluded"></ul>
+          </div>
+        </div>
+        <div class="scen-cta-row">
+          <a href="#form" class="btn btn-primary" id="scenModalBook">Забронировать →</a>
+          <span class="micro">или напишите нам — <em>подберём даты под вас</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // === Scenario data ===
+    const SCEN_DATA = {
+      'scen-1': {
+        title: 'Казань впервые: знакомство с городом',
+        duration: '2 дня/1 ночь (Казань)',
+        priceTitle: 'Казань впервые',
+        priceMeta: '2 дня · 1 ночь · суббота — воскресенье · только для вас',
+        price: '55 000 ₽ за двоих',
+        days: [
+          {
+            label: '1 день', photos: ['assets/scen-1.jpg', 'assets/hero.png', 'assets/process.jpg'], items: [
+              ['11:00', 'Встреча с гидом (вокзал/аэропорт), завтрак в кафе'],
+              ['12:00', 'Обзорная экскурсия по Казани с выходами у главных достопримечательностей'],
+              ['15:00', 'Старо-Татарская слобода и набережная озера Кабан'],
+              ['16:30', 'Обед в семейном кафе'],
+              ['17:30', 'Мастер-класс по национальной выпечке'],
+              ['19:00', 'Заселение в отель, свободное время']
+            ]
+          },
+          {
+            label: '2 день', photos: ['assets/scen-2.jpg', 'assets/who.jpg', 'assets/scen-3.jpg'], items: [
+              ['09:00', 'Завтрак в отеле, встреча с гидом'],
+              ['10:00', 'Пешеходная экскурсия по улице Баумана и Казанскому Кремлю'],
+              ['13:30', 'Обед в кафе'],
+              ['14:30', 'Посещение интерактивного музея «Городская панорама»'],
+              ['17:00', 'Окончание программы, трансфер']
+            ]
+          }
+        ],
+        included: [
+          'Встреча и проводы (трансфер на авто)',
+          '1 ночь в отеле 4★ в центре города',
+          'Завтрак в отеле',
+          'Авторская экскурсия (весь день сб + утро вс)',
+          'Татарский ужин в субботу',
+          'Обед в воскресенье',
+          'Все входные билеты по маршруту',
+          'Подарок от семьи при отъезде'
+        ],
+        excluded: [
+          'Билеты до Казани и обратно',
+          'Личные расходы в кафе и магазинах',
+          'Мастер-классы и доп. активности (по запросу)'
+        ]
+      },
+
+      'scen-2': {
+        title: 'Казань гастрономическая',
+        duration: '2 дня/1 ночь (Казань)',
+        priceTitle: 'Казань гастрономическая',
+        priceMeta: '2 дня · 1 ночь · пятница — воскресенье · только для вас',
+        price: '78 000 ₽ за семью из 4',
+        days: [
+          {
+            label: '1 день', photos: ['assets/scen-2.jpg', 'assets/process.jpg', 'assets/hero.png'], items: [
+              ['11:00', 'Встреча с гидом, лёгкий перекус с татарским чаем'],
+              ['12:00', 'Гастро-прогулка по Старо-Татарской слободе — лавки и пекарни'],
+              ['14:00', 'Мастер-класс «Эчпочмак и кыстыбый» для детей и родителей'],
+              ['16:30', 'Обед в авторском ресторане татарской кухни'],
+              ['18:00', 'Заселение в отель, отдых'],
+              ['20:00', 'Ужин с татарским меню (по желанию — без острого)']
+            ]
+          },
+          {
+            label: '2 день', photos: ['assets/scen-3.jpg', 'assets/who.jpg', 'assets/scen-1.jpg'], items: [
+              ['09:30', 'Завтрак в отеле'],
+              ['11:00', 'Чак-чак мастерская и музей чая'],
+              ['13:30', 'Обед в кафе с детским меню'],
+              ['15:00', 'Прогулка по Кремлю и набережной'],
+              ['17:00', 'Окончание программы']
+            ]
+          }
+        ],
+        included: [
+          'Трансфер на авто (встреча и проводы)',
+          '1 ночь в отеле 4★ в центре',
+          'Завтрак в отеле',
+          'Авторская гастро-экскурсия',
+          '2 мастер-класса по татарской кухне',
+          'Татарский ужин с авторским меню',
+          '2 обеда в выбранных ресторанах',
+          'Все дегустации по маршруту'
+        ],
+        excluded: [
+          'Билеты до Казани и обратно',
+          'Алкогольные напитки',
+          'Личные расходы'
+        ]
+      },
+
+      'scen-3': {
+        title: 'Казань и Свияжск: выходные для детей и взрослых',
+        duration: '3 дня/2 ночи (Казань/Свияжск)',
+        priceTitle: 'Татарстан за пределами Казани',
+        priceMeta: '3 дня · 2 ночи · только для вас',
+        price: '124 000 ₽ за семью из 4',
+        days: [
+          {
+            label: '1 день', photos: ['assets/scen-3.jpg', 'assets/hero.png', 'assets/scen-1.jpg'], items: [
+              ['11:00', 'Встреча с гидом (вокзал/аэропорт), завтрак в кафе'],
+              ['12:00', 'Обзорная экскурсия по Казани с выходами на главных туристических достопримечательностях'],
+              ['15:00', 'Экскурсия по «Национальной библиотеке РТ» или на футбольный стадион — домашнюю площадку футбольной команды «Рубин»'],
+              ['16:00', 'Обед в кафе'],
+              ['17:00', 'Мастер-класс по национальной выпечке'],
+              ['18:30', 'Заселение в гостиницу, свободное время']
+            ]
+          },
+          {
+            label: '2 день', photos: ['assets/scen-4.jpg', 'assets/process.jpg', 'assets/who.jpg'], items: [
+              ['09:00', 'Завтрак в гостинице, встреча с гидом'],
+              ['10:00', 'Пешеходная экскурсия по улице Баумана и Казанскому Кремлю'],
+              ['13:30', 'Обед в кафе'],
+              ['14:30', 'Посещение интерактивного музея «Городская панорама»'],
+              ['17:00', 'Окончание программы, свободное время']
+            ]
+          },
+          {
+            label: '3 день', photos: ['assets/scen-5.jpg', 'assets/scen-2.jpg', 'assets/hero.png'], items: [
+              ['09:00', 'Завтрак в гостинице, выселение, встреча с гидом'],
+              ['10:00', 'Загородная экскурсия на остров-град «Свияжск», it-город Иннополис, арт-объект «Храм всех религий»'],
+              ['15:30', 'Обед в кафе'],
+              ['18:30', 'Возвращение в Казань'],
+              ['19:00', 'Ужин или ланч-бокс в дорогу'],
+              ['19:30', 'Трансфер (вокзал/аэропорт)']
+            ]
+          }
+        ],
+        included: [
+          'Встреча и проводы (трансфер на авто)',
+          '2 ночи в отеле 4★ в центре Казани',
+          'Завтраки в отеле',
+          'Авторская экскурсия (3 дня сопровождения)',
+          'Загородный выезд: Свияжск + Иннополис',
+          'Мастер-класс по национальной выпечке',
+          '3 обеда + 1 ужин по маршруту',
+          'Все входные билеты'
+        ],
+        excluded: [
+          'Билеты до Казани и обратно',
+          'Личные расходы в кафе и магазинах',
+          'Дополнительные активности (по запросу)'
+        ]
+      },
+
+      'scen-4': {
+        title: 'Казань для трёх поколений',
+        duration: '2 дня/1 ночь (Казань)',
+        priceTitle: 'Казань для трёх поколений',
+        priceMeta: '2 дня · 1 ночь · спокойный темп · только для вас',
+        price: '92 000 ₽ за семью из 5',
+        days: [
+          {
+            label: '1 день', photos: ['assets/scen-4.jpg', 'assets/who.jpg', 'assets/hero.png'], items: [
+              ['11:30', 'Встреча с гидом, заселение в отель без ожидания'],
+              ['13:00', 'Обед в спокойном ресторане с домашней кухней'],
+              ['15:00', 'Прогулка по Кремлю в комфортном темпе — с остановками'],
+              ['17:00', 'Чайная пауза с татарскими сладостями'],
+              ['18:30', 'Возвращение в отель, отдых']
+            ]
+          },
+          {
+            label: '2 день', photos: ['assets/scen-1.jpg', 'assets/process.jpg', 'assets/scen-3.jpg'], items: [
+              ['09:30', 'Поздний завтрак в отеле'],
+              ['11:00', 'Татарская деревня «Туган Авылым» — без длинных переходов'],
+              ['13:30', 'Семейный обед'],
+              ['15:00', 'Музей чак-чака с дегустацией'],
+              ['16:30', 'Окончание программы, трансфер']
+            ]
+          }
+        ],
+        included: [
+          'Трансфер на минивэне (комфорт+)',
+          '1 ночь в отеле 4★ с лифтом и удобным расположением',
+          'Завтрак в отеле',
+          'Сопровождение гида с медицинским опытом',
+          '2 обеда + чайная пауза',
+          'Дегустация чак-чака',
+          'Все входные билеты',
+          'Программа без длительных пеших переходов'
+        ],
+        excluded: [
+          'Билеты до Казани и обратно',
+          'Личные расходы',
+          'Доп. экскурсии вне программы'
+        ]
+      },
+
+      'scen-5': {
+        title: 'Этнопутешествие в татарскую деревню',
+        duration: '1 день (выезд из Казани)',
+        priceTitle: 'Этнопутешествие в деревню',
+        priceMeta: '1 день · выезд утром · только для вас',
+        price: '38 000 ₽ за семью из 4',
+        days: [
+          {
+            label: '1 день', photos: ['assets/scen-5.jpg', 'assets/who.jpg', 'assets/hero.png'], items: [
+              ['09:00', 'Выезд из Казани с сопровождением'],
+              ['10:30', 'Прибытие в этнодеревню, знакомство с хозяевами'],
+              ['11:00', 'Экскурсия по подворью: ремёсла, быт, домашние животные'],
+              ['12:30', 'Мастер-класс по выпечке хлеба в татарской печи'],
+              ['13:30', 'Национальный обед за общим столом'],
+              ['15:00', 'Свободное время: игры для детей, чаепитие'],
+              ['16:30', 'Выезд в Казань'],
+              ['18:00', 'Возвращение, окончание программы']
+            ]
+          }
+        ],
+        included: [
+          'Трансфер из Казани и обратно',
+          'Сопровождение гида',
+          'Экскурсия по этнодеревне',
+          'Мастер-класс по выпечке хлеба',
+          'Национальный обед',
+          'Все активности для детей',
+          'Чаепитие с татарскими сладостями'
+        ],
+        excluded: [
+          'Доп. мастер-классы (по запросу)',
+          'Сувениры',
+          'Личные расходы'
+        ]
+      }
+    };
+
+    // === Modal logic ===
+    (function () {
+      const modal = document.getElementById('scenModal');
+      const closeBtn = document.getElementById('scenModalClose');
+      const elTitle = document.getElementById('scenModalTitle');
+      const elDur = document.getElementById('scenModalDuration');
+      const elDays = document.getElementById('scenModalDays');
+      const elPriceTitle = document.getElementById('scenModalPriceTitle');
+      const elPriceMeta = document.getElementById('scenModalPriceMeta');
+      const elPrice = document.getElementById('scenModalPrice');
+      const elIncl = document.getElementById('scenModalIncluded');
+      const elExcl = document.getElementById('scenModalExcluded');
+
+      function buildCarousel(photos) {
+        const wrap = document.createElement('div');
+        wrap.className = 'scen-carousel';
+        const track = document.createElement('div');
+        track.className = 'scen-carousel-track';
+        photos.forEach(src => {
+          const s = document.createElement('div');
+          s.className = 'scen-carousel-slide';
+          s.style.backgroundImage = `url('${src}')`;
+          track.appendChild(s);
+        });
+        wrap.appendChild(track);
+
+        const prev = document.createElement('button');
+        prev.type = 'button'; prev.className = 'scen-carousel-btn prev';
+        prev.setAttribute('aria-label', 'Предыдущее фото');
+        prev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
+        const next = document.createElement('button');
+        next.type = 'button'; next.className = 'scen-carousel-btn next';
+        next.setAttribute('aria-label', 'Следующее фото');
+        next.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+        wrap.appendChild(prev); wrap.appendChild(next);
+
+        const dots = document.createElement('div');
+        dots.className = 'scen-carousel-dots';
+        photos.forEach((_, i) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', `Фото ${i + 1}`);
+          if (i === 0) b.classList.add('active');
+          dots.appendChild(b);
+        });
+        wrap.appendChild(dots);
+
+        let idx = 0;
+        const total = photos.length;
+        const update = () => {
+          track.style.transform = `translateX(-${idx * 100}%)`;
+          [...dots.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+        };
+        prev.addEventListener('click', () => { idx = (idx - 1 + total) % total; update(); });
+        next.addEventListener('click', () => { idx = (idx + 1) % total; update(); });
+        [...dots.children].forEach((d, i) => d.addEventListener('click', () => { idx = i; update(); }));
+
+        return wrap;
+      }
+
+      function populate(id) {
+        const data = SCEN_DATA[id];
+        if (!data) return;
+        elTitle.textContent = data.title;
+        elDur.textContent = data.duration;
+        elPriceTitle.textContent = data.priceTitle;
+        elPriceMeta.textContent = data.priceMeta;
+        elPrice.textContent = data.price;
+
+        elDays.innerHTML = '';
+        data.days.forEach(day => {
+          const row = document.createElement('div');
+          row.className = 'scen-day';
+          row.appendChild(buildCarousel(day.photos));
+
+          const content = document.createElement('div');
+          content.className = 'scen-day-content';
+          const h = document.createElement('h4');
+          h.textContent = day.label;
+          content.appendChild(h);
+
+          const list = document.createElement('div');
+          list.className = 'scen-day-list';
+          day.items.forEach(([t, txt]) => {
+            const tEl = document.createElement('div');
+            tEl.className = 't'; tEl.textContent = t;
+            const dEl = document.createElement('div');
+            dEl.className = 'd'; dEl.textContent = txt;
+            list.appendChild(tEl); list.appendChild(dEl);
+          });
+          content.appendChild(list);
+          row.appendChild(content);
+          elDays.appendChild(row);
+        });
+
+        elIncl.innerHTML = ''; elExcl.innerHTML = '';
+        data.included.forEach(t => { const li = document.createElement('li'); li.textContent = t; elIncl.appendChild(li); });
+        data.excluded.forEach(t => { const li = document.createElement('li'); li.textContent = t; elExcl.appendChild(li); });
+      }
+
+      function open(id) {
+        populate(id);
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        modal.scrollTop = 0;
+      }
+      function close() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+
+      document.querySelectorAll('.scen-open').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          open(btn.dataset.scen);
+        });
+      });
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+
+      // Booking CTA: close modal then scroll to form
+      document.getElementById('scenModalBook').addEventListener('click', () => { close(); });
+    })();
+  </script>
+
+  <script>
+    // Subtle reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.card, .scen, .step, .who-media, .form-block, .msg-card').forEach(el => {
+      el.classList.add('fade-up'); io.observe(el);
+    });
+
+    // Header: transparent at top, opaque after scrolling
+    (function () {
+      const header = document.querySelector('header.site');
+      if (!header) return;
+      const onScroll = () => {
+        if (window.scrollY > 40) { header.classList.add('scrolled'); }
+        else { header.classList.remove('scrolled'); }
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+
+  <script>
+    // Form submission — sends data to Make.com webhook
+    (function () {
+      const form = document.getElementById('tripForm');
+      if (!form) return;
+      const WEBHOOK_URL = 'https://hook.eu1.make.com/e41i8ptx6wkftseglnriip3mdltqewxz';
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Отправляем...';
+
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            body: new FormData(form)
+          });
+          btn.textContent = '✓ Спасибо! Мы свяжемся с вами';
+          form.reset();
+        } catch (err) {
+          btn.textContent = 'Ошибка. Попробуйте ещё раз';
+          btn.disabled = false;
+          setTimeout(() => { btn.textContent = originalText; }, 3000);
+        }
+      });
+    })();
+  </script>
+
+
+</body>
+
+</html>
