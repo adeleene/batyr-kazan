@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --emerald: #1A261C;
+    --emerald-mid: #2C4030;
+    --cream: #F2E8DC;
+    --cream-dark: #E8DACC;
+    --gold: #B89A78;
+    --gold-light: #D4B896;
+    --text-dark: #1A261C;
+    --text-mid: #4A5E4D;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--emerald);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,154,120,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-meta {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(242,232,220,0.45);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  .hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0 40px;
+  }
+
+  .greeting {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(242,232,220,0.55);
+    margin-top: 18px;
+    max-width: 480px;
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .hero-dates {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(242,232,220,0.4);
+    line-height: 1.9;
+  }
+
+  .scroll-hint {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(184,154,120,0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-hint::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: rgba(184,154,120,0.4);
+  }
+
+  /* DIVIDER */
+  .rule {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0.35;
+    margin: 0 48px;
+  }
+
+  /* INTRO */
+  .intro {
+    padding: 80px 48px;
+    max-width: 760px;
+  }
+
+  .section-num {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-num::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--gold);
+    opacity: 0.3;
+    max-width: 40px;
+  }
+
+  .intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--text-dark);
+  }
+
+  .intro-text strong {
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  /* DAYS */
+  .day-section {
+    padding: 0 0 80px;
+  }
+
+  .day-header {
+    background: var(--emerald-mid);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .day-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .day-label em { font-style: italic; color: var(--gold-light); }
+
+  .day-date {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(242,232,220,0.45);
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  .timeline {
+    padding: 0 48px;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 70px 1px 1fr;
+    gap: 0 28px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .tl-item:nth-child(1) { animation-delay: 0.1s; }
+  .tl-item:nth-child(2) { animation-delay: 0.2s; }
+  .tl-item:nth-child(3) { animation-delay: 0.3s; }
+  .tl-item:nth-child(4) { animation-delay: 0.4s; }
+  .tl-item:nth-child(5) { animation-delay: 0.5s; }
+  .tl-item:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tl-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--gold);
+    padding-top: 2px;
+    line-height: 1;
+  }
+
+  .tl-line-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tl-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .tl-connector {
+    width: 1px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    opacity: 0.25;
+    margin-top: 4px;
+  }
+
+  .tl-content { padding-bottom: 8px; }
+
+  .tl-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+
+  .tl-sub {
+    font-size: 12px;
+    color: var(--text-mid);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .tl-incl {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid rgba(184,154,120,0.4);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 6px;
+  }
+
+  /* GIFT */
+  .gift-section {
+    background: var(--emerald);
+    margin: 0;
+    padding: 64px 48px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .gift-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(184,154,120,0.12);
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .gift-body {}
+
+  .gift-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .gift-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.65;
+    max-width: 520px;
+  }
+
+  /* INCLUDED */
+  .included {
+    padding: 72px 48px;
+  }
+
+  .inc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin-top: 36px;
+    border: 0.5px solid rgba(26,38,28,0.12);
+  }
+
+  .inc-item {
+    padding: 24px 20px;
+    border: 0.5px solid rgba(26,38,28,0.08);
+  }
+
+  .inc-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .inc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .inc-note {
+    font-size: 11px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+
+  /* PRICE + CTA */
+  .cta-section {
+    background: var(--emerald);
+    padding: 80px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,154,120,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .cta-title em { font-style: italic; color: var(--gold-light); }
+
+  .price-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(242,232,220,0.5);
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .price-line strong {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--cream);
+    font-style: normal;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--emerald);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 48px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(184,154,120,0.25);
+  }
+
+  .cta-note {
+    margin-top: 20px;
+    font-size: 11px;
+    color: rgba(242,232,220,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid rgba(26,38,28,0.12);
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+  }
+
+  .footer-contact {
+    font-size: 12px;
+    color: var(--text-mid);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 600px) {
+    .hero, .intro, .timeline, .included, .cta-section, .footer, .day-header, .gift-section { padding-left: 24px; padding-right: 24px; }
+    .rule { margin: 0 24px; }
+    .gift-num { display: none; }
+    .hero-meta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="brand">Батыр</div>
+    <div class="hero-meta">
+      Персональная программа<br>
+      Марина &amp; Игорь
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <div class="greeting">Ваше путешествие</div>
+    <div class="hero-title">
+      Казань.<br>
+      <em>Влюбиться.</em>
+    </div>
+    <div class="hero-tagline">
+      Два дня. Один город. Семья, которая знает его наизусть.
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-dates">
+      21–22 июня 2025<br>
+      Суббота — воскресенье
+    </div>
+    <div class="scroll-hint">Листайте</div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="section-num">Письмо от Аделины</div>
+  <div class="intro-text">
+    Марина, Игорь — мы рады, что вы выбрали нас.<br><br>
+    Папа встретит вас на вокзале с термосом чая. Мама всё приготовила заранее. Я — из Нидерландов — слежу за тем, чтобы каждая деталь была на месте.<br><br>
+    <strong>Казань откроется вам так, как открывается только близким.</strong>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- СУББОТА -->
+<section class="day-section">
+  <div class="day-header">
+    <div class="day-label">День <em>первый</em></div>
+    <div class="day-date">Суббота<br>21 июня</div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">10:00</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Встреча на вокзале</div>
+        <div class="tl-sub">Папа будет ждать вас с табличкой — и термосом татарского чая. В машине уже тепло.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">10:40</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Завтрак в Аулак</div>
+        <div class="tl-sub">Кафе, куда ходим сами. Татарские блины с тыквой, чай с чабрецом. Вы оплачиваете сами — мы просто знаем лучшее место.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">11:45</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Авторская экскурсия</div>
+        <div class="tl-sub">Татарская слобода, озеро Кабан, театр Камала, Туган Авылым, театр кукол Экият и смотровая Чаша. Папа — с историями, не с микрофоном.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">14:00</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Обед — стол уже забронирован</div>
+        <div class="tl-sub">Папа отвезёт вас в место, которое вы сами потом будете советовать друзьям. Вы оплачиваете сами.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">15:00</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Свободное время</div>
+        <div class="tl-sub">Вы получите гайд с тремя сценариями на выбор: гулять по Баумана, уйти в музеи или просто замедлиться у Кабана. Папа доступен.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">19:00</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Ужин в татарском ресторане</div>
+        <div class="tl-sub">Стол зарезервирован. Эчпочмак, казан-кебаб, чак-чак на десерт. Десять минут пешком от вашего отеля.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ВОСКРЕСЕНЬЕ -->
+<section class="day-section" style="padding-top:48px;">
+  <div class="day-header">
+    <div class="day-label">День <em>второй</em></div>
+    <div class="day-date">Воскресенье<br>22 июня</div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-time">09:00</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Завтрак в отеле</div>
+        <div class="tl-sub">Уже включён в стоимость. Никуда торопиться не нужно.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">11:00</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Казанский Кремль</div>
+        <div class="tl-sub">Авторская экскурсия по Кремлю, мечеть Кул-Шариф, башня Сюмбике. Без суеты — только вы и восемь веков истории.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">13:30</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Прощальный обед</div>
+        <div class="tl-sub">Папа угощает. Это наш способ сказать: приезжайте снова.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-time">15:30</div>
+      <div class="tl-line-wrap"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Проводы</div>
+        <div class="tl-sub">Папа отвезёт вас на вокзал. Небольшой подарок от семьи — на память о Казани.</div>
+        <span class="tl-incl">включено</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GIFT QUOTE -->
+<section class="gift-section">
+  <div class="gift-num">❝</div>
+  <div class="gift-body">
+    <div class="gift-label">Наша философия</div>
+    <div class="gift-text">
+      Приезжайте — мы позаботимся обо всём остальном. Казань глазами семьи, которая её любит.
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="included">
+  <div class="section-num">Всё, что входит в стоимость</div>
+  <div class="inc-grid">
+    <div class="inc-item">
+      <div class="inc-icon">🚗</div>
+      <div class="inc-name">Встреча и проводы</div>
+      <div class="inc-note">Трансфер на автомобиле папы</div>
+    </div>
+    <div class="inc-item">
+      <div class="inc-icon">🏨</div>
+      <div class="inc-name">Отель 4★ в центре</div>
+      <div class="inc-note">1 ночь, двухместный номер</div>
+    </div>
+    <div class="inc-item">
+      <div class="inc-icon">🍳</div>
+      <div class="inc-name">Завтрак в воскресенье</div>
+      <div class="inc-note">В отеле, включён</div>
+    </div>
+    <div class="inc-item">
+      <div class="inc-icon">🗺</div>
+      <div class="inc-name">Две авторские экскурсии</div>
+      <div class="inc-note">Слобода + Кабан, Кремль</div>
+    </div>
+    <div class="inc-item">
+      <div class="inc-icon">🍽</div>
+      <div class="inc-name">Ужин и обед</div>
+      <div class="inc-note">Суббота вечер, воскресенье день</div>
+    </div>
+    <div class="inc-item">
+      <div class="inc-icon">🎁</div>
+      <div class="inc-name">Подарок от семьи</div>
+      <div class="inc-note">При отъезде</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-eyebrow">Забронировать место</div>
+  <div class="cta-title">Марина &amp; Игорь,<br><em>ждём вас.</em></div>
+  <div class="price-line">Стоимость для вас — <strong>55 000 ₽</strong> за двоих</div>
+  <a class="cta-btn" href="#">Внести предоплату — 10 000 ₽</a>
+  <div class="cta-note">После предоплаты Аделина напишет вам в течение часа и подтвердит бронирование</div>
+</section>
+
+<!-- FOOTER -->
+<div class="rule"></div>
+<footer class="footer">
+  <div class="footer-brand">Батыр · Семейное бюро путешествий</div>
+  <div class="footer-contact">
+    Аделина — @batyr_kzn<br>
+    batyr-kzn.ru
+  </div>
+</footer>
+
+</body>
+</html>
